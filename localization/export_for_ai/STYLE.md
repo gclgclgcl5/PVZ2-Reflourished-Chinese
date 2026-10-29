@@ -3,9 +3,9 @@
 ## 专名（权威）
 
 - **第一权威**：`localization/参考翻译/utf8/LawnStrings-ParaTranz.json`（原版/社区 PvZ2 汉化，非返茂专表）。
-- **派生表**：`localization/scripts/glossary_pvz2.py`（由 `rebuild_glossary_from_ref.py` 从参考生成；世界 / 植物 / 僵尸 / STAT / 常用短语）。
-- 返茂 / 联动独有专名：`glossary_mods.py`（参考没有的键才写这里；不得与参考冲突的旧官中习惯混用）。
-- 示例（以参考为准）：上古埃及、狂野西部、炫光魔音游、冷却时间、阳光消耗、生命值、雪花豌豆、阿开木-木、薄荷「薄/荷」家族译名等。
+- **现行成稿**：`localization/LawnStrings_zh.json`（唯一启用；改词请改这里）。
+- 旧机翻术语表已归档：`localization/archive/machine_translation/scripts/glossary_*.py`（**勿再整库套用**）。
+- 示例（以参考/现行为准）：上古埃及、狂野西部、炫光魔音游、冷却时间、阳光消耗、生命值、潘妮（勿写「朋朋」）等。
 
 ## 语气
 

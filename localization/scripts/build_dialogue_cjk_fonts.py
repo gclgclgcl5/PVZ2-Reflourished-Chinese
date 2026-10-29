@@ -3,6 +3,10 @@
 
 Outputs TTFs under F:\\sen_work\\fonts_cjk\\ whose name tables match typefaces.json
 Font fields (BrianneTod, Pico12, …) so NPC FontName resolution keeps working.
+
+For Scheme A (patch_loadingfonts_append.py) the non-UI faces must fit in ~860KB
+total after 0x1000 alignment. Prefer fewer CJK codepoints (see --compact) rather
+than full LawnStrings cmap, or packing will exceed stock usize 0x4B7000.
 """
 from __future__ import annotations
 
@@ -77,13 +81,21 @@ LATIN = "".join(chr(c) for c in range(0x20, 0x7F))
 EXTRA = "…—–“”‘’¥€£©®™°×÷±≤≥∞·•※【】《》「」『』（）！"
 
 
-def charset_from_lawn() -> str:
+def charset_from_lawn(compact_top_n: int | None = None) -> str:
     data = json.loads(LAWN.read_text(encoding="utf-8"))
     chars: set[str] = set(LATIN + EXTRA)
-    for v in data.values():
-        if isinstance(v, str):
-            chars.update(v)
-    # ensure common CJK punctuation
+    if compact_top_n is None:
+        for v in data.values():
+            if isinstance(v, str):
+                chars.update(v)
+    else:
+        from collections import Counter
+
+        ctr: Counter[str] = Counter()
+        for v in data.values():
+            if isinstance(v, str):
+                ctr.update(ch for ch in v if "\u4e00" <= ch <= "\u9fff")
+        chars.update(ch for ch, _ in ctr.most_common(compact_top_n))
     chars.update("，。！？；：、")
     return "".join(sorted(chars))
 
@@ -206,9 +218,21 @@ def merge_fallback(primary: Path, fallback: Path, text: str, dest: Path) -> None
 
 
 def main() -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument(
+        "--compact",
+        type=int,
+        nargs="?",
+        const=400,
+        default=None,
+        help="only top-N CJK by frequency (+ ASCII/punct); recommended ~300-500 for Scheme A",
+    )
+    args = ap.parse_args()
     download_all()
-    text = charset_from_lawn()
-    print(f"charset size {len(text)}")
+    text = charset_from_lawn(args.compact)
+    print(f"charset size {len(text)} compact={args.compact}")
     OUT.mkdir(parents=True, exist_ok=True)
     fallback = SRC / "NotoSansSC-Regular.otf"
     for face_name, src_name in FACE_MAP:
