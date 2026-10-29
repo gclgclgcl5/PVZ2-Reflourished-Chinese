@@ -1,0 +1,43 @@
+# 原版与中间产物（体积过大 / 勿入库）
+*.obb
+PvZ2 Reflourished*.apk
+/main.675.com.ea.game.pvz2_rfl.obb
+/work/
+/tools/
+
+# release_zh：大二进制走 GitHub Releases，勿入库
+/release_zh/*.obb
+/release_zh/*.apk
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+*.bak
+*.bak_*
+
+# Sen / 临时工作区
+/F_sen_work_hint
+*.keystore
+!**/debug.keystore.example
+
+# 字体源文件（可选重建对话字体用，体积大；脚本可再下载）
+/localization/fonts_src/
+/localization/fonts_cjk/
+
+# 分析导出噪声
+apk-inspect.json
+*.log
+/localization/export_for_ai.zip
+/localization/export_for_ai/.mt_cache.jsonl
+/localization/export_for_ai/*.zh.json.bak
+/localization/参考翻译/raw/

@@ -1,0 +1,476 @@
+{
+  "p0_overwrite": 5165,
+  "p0_whitespace": 0,
+  "p0_unchanged_same": 657,
+  "p0_samples": [
+    {
+      "key": "ACCOUNT_DELETION",
+      "kind": "overwrite",
+      "old": "删除账号",
+      "new": "账户删除"
+    },
+    {
+      "key": "ACCOUNT_DELETION_BUTTON_OK",
+      "kind": "overwrite",
+      "old": "确定",
+      "new": "好的"
+    },
+    {
+      "key": "ACCOUNT_DELETION_FAILURE_DESCRIPTION",
+      "kind": "overwrite",
+      "old": "处理请求时出错，请稍后再试。",
+      "new": "处理您的请求时出现错误。请稍后再试。"
+    },
+    {
+      "key": "ACCOUNT_DELETION_SUCCESS_DESCRIPTION",
+      "kind": "overwrite",
+      "old": "您的《植物大战僵尸2》帐户、个人资料和游戏进度已被删除。您现在可以关闭应用程序。如果您在其他设备上玩，请在每台设备上卸载该应用程序以完成帐户删除。",
+      "new": "你的《植物大战僵尸 2》账户、档案以及游戏进度已被删除。现在你可以关闭此应用。\r\n如果你还在其他设备上游玩，请卸载每部设备上的应用程序以完成账户删除操作。"
+    },
+    {
+      "key": "ACCOUNT_DELETION_SUCCESS_TITLE",
+      "kind": "overwrite",
+      "old": "账号已删除",
+      "new": "账户已删除"
+    },
+    {
+      "key": "ACCOUNT_DELETION_YES_NO_CLICKABLE_DESCRIPTION_B",
+      "kind": "overwrite",
+      "old": "点此查看更多详情。",
+      "new": "此处可查看详细信息。"
+    },
+    {
+      "key": "ACCOUNT_DELETION_YES_NO_DESCRIPTION_A",
+      "kind": "overwrite",
+      "old": "按下此按钮，您将启动对您的《植物大战僵尸2》账户的永久删除，包括所有平台上的所有资料和游戏进度。",
+      "new": "若按下此按钮，你将永久删除你的《植物大战僵尸 2》 账户信息，包括所有平台上的全部档案以及游戏进度。"
+    },
+    {
+      "key": "ACCOUNT_DELETION_YES_NO_DESCRIPTION_B",
+      "kind": "overwrite",
+      "old": "您确定要永久删除您的《植物大战僵尸2》账户，包括所有平台的所有资料和游戏进度吗？",
+      "new": "你确定要永久删除你的 《植物大战僵尸 2》账户，包括所有平台的所有档案和游戏进度吗？"
+    },
+    {
+      "key": "ACCOUNT_DELETION_YES_NO_TITLE_A",
+      "kind": "overwrite",
+      "old": "删除我的账号",
+      "new": "删除我的账户"
+    },
+    {
+      "key": "ACCOUNT_LINK_DESCRIPTION",
+      "kind": "overwrite",
+      "old": "将个人账号与游戏存档关联，以便备份进度并在多台设备上游玩。",
+      "new": "用你当前的游戏档案给自己注册一个账户，以便备份游戏进度，并在数台设备上游玩。"
+    },
+    {
+      "key": "ACCOUNT_SIGN_IN_BENEFITS_ACHIEVEMENTS",
+      "kind": "overwrite",
+      "old": "解锁成就",
+      "new": "获得成就"
+    },
+    {
+      "key": "ACCOUNT_SIGN_IN_BENEFITS_CLOUD_SAVE",
+      "kind": "overwrite",
+      "old": "保存进度以便恢复或在其他设备使用",
+      "new": "保存你的进度，以便在特殊情况下恢复数据或在其他设备上使用"
+    },
+    {
+      "key": "ACCOUNT_SIGN_IN_BENEFITS_HEADER",
+      "kind": "overwrite",
+      "old": "登录后可以：",
+      "new": "登入之后，你就可以："
+    },
+    {
+      "key": "ACCOUNT_SIGN_IN_BUTTON",
+      "kind": "overwrite",
+      "old": "登录",
+      "new": "登入"
+    },
+    {
+      "key": "ACCOUNT_SIGN_IN_TITLE",
+      "kind": "overwrite",
+      "old": "你尚未登录",
+      "new": "你还没有登入"
+    },
+    {
+      "key": "ACHIEVEMENT_99_UNDEAD_BALLOONS_DESC",
+      "kind": "overwrite",
+      "old": "防止气球僵尸穿过第5列",
+      "new": "阻止气球僵尸跨过第 5 排"
+    },
+    {
+      "key": "ACHIEVEMENT_BASH_POTATO_DESC",
+      "kind": "overwrite",
+      "old": "用一把原始土豆地雷击败7个僵尸",
+      "new": "用一枚原始土豆地雷击败 7 只僵尸"
+    },
+    {
+      "key": "ACHIEVEMENT_BASH_POTATO_HEADER",
+      "kind": "overwrite",
+      "old": "猛砸土豆",
+      "new": "土豆死"
+    },
+    {
+      "key": "ACHIEVEMENT_CANT_STOP_THE_ROCK_DESC",
+      "kind": "overwrite",
+      "old": "用一次滚石陷阱击败 5 只僵尸",
+      "new": "用单个滚石陷阱击杀 5 只僵尸"
+    },
+    {
+      "key": "ACHIEVEMENT_CANT_STOP_THE_ROCK_HEADER",
+      "kind": "overwrite",
+      "old": "无法阻挡这块石头",
+      "new": "不能让石头停下来"
+    },
+    {
+      "key": "ACHIEVEMENT_DINOS_SORE_DESC",
+      "kind": "overwrite",
+      "old": "防止本关所有恐龙与任何僵尸互动",
+      "new": "让恐龙在一整关里碰不到一只僵尸"
+    },
+    {
+      "key": "ACHIEVEMENT_DINOS_SORE_HEADER",
+      "kind": "overwrite",
+      "old": "恐龙酸痛",
+      "new": "龙之怒"
+    },
+    {
+      "key": "ACHIEVEMENT_DOWN_WITH_THE_SICKNESS_DESC",
+      "kind": "overwrite",
+      "old": "让一只传染僵尸把毒素传给另外 5 只僵尸",
+      "new": "让一只中毒的僵尸传毒至其他 5 只僵尸身上"
+    },
+    {
+      "key": "ACHIEVEMENT_DOWN_WITH_THE_SICKNESS_TITLE",
+      "kind": "overwrite",
+      "old": "打倒疫病",
+      "new": "病倒"
+    },
+    {
+      "key": "ACHIEVEMENT_HOT_OFF_THE_PRESSES_DESC",
+      "kind": "overwrite",
+      "old": "把报纸僵尸的报纸点着",
+      "new": "点燃读报僵尸的报纸"
+    }
+  ],
+  "p1_mapped": 3268,
+  "p1_samples": [
+    {
+      "rfl_key": "achieve_all_in_jest_desc",
+      "ref_key": "ACHIEVE_ALL_IN_JEST_DESC",
+      "old": "完成弄臣僵尸不返回弹丸的关卡",
+      "new": "在弄臣僵尸没有反弹任何子弹的条件下完成关卡"
+    },
+    {
+      "rfl_key": "achieve_all_in_jest_title",
+      "ref_key": "ACHIEVE_ALL_IN_JEST_TITLE",
+      "old": "全是玩笑",
+      "new": "向我开炮"
+    },
+    {
+      "rfl_key": "achieve_banana_storm_desc",
+      "ref_key": "ACHIEVE_BANANA_STORM_DESC",
+      "old": "仅用香蕉摧毁僵尸，通关一关海滩关卡",
+      "new": "只使用香蕉消灭僵尸，完成一道海滩关卡"
+    },
+    {
+      "rfl_key": "achieve_big_kahunka_desc",
+      "ref_key": "ACHIEVE_BIG_KAHUNKA_DESC",
+      "old": "击败深海巨人收集他们的世界钥匙",
+      "new": "击败深海巨人僵尸，收集他们的世界钥匙"
+    },
+    {
+      "rfl_key": "achieve_big_kahunka_title",
+      "ref_key": "ACHIEVE_BIG_KAHUNKA_TITLE",
+      "old": "大卡洪卡",
+      "new": "深海领主"
+    },
+    {
+      "rfl_key": "achieve_broadside_desc",
+      "ref_key": "ACHIEVE_BROADSIDE_DESC",
+      "old": "使用椰子大炮摧毁小鬼大炮",
+      "new": "使用椰子加农炮摧毁小鬼大炮"
+    },
+    {
+      "rfl_key": "achieve_broadside_title",
+      "ref_key": "ACHIEVE_BROADSIDE_TITLE",
+      "old": "舷侧齐射",
+      "new": "舷炮齐射"
+    },
+    {
+      "rfl_key": "achieve_cowboy_stars_desc",
+      "ref_key": "ACHIEVE_COWBOY_STARS_DESC",
+      "old": "完成西部荒野",
+      "new": "完成狂野西部"
+    },
+    {
+      "rfl_key": "achieve_cowboy_stars_title",
+      "ref_key": "ACHIEVE_COWBOY_STARS_TITLE",
+      "old": "驾！",
+      "new": "咿—哈！"
+    },
+    {
+      "rfl_key": "achieve_dog_whisperer_desc",
+      "ref_key": "ACHIEVE_DOG_WHISPERER_DESC",
+      "old": "在唤墓僵尸升起任何墓碑前消灭它",
+      "new": "在影立古墓僵尸立起坟墓前消灭它"
+    },
+    {
+      "rfl_key": "achieve_dog_whisperer_title",
+      "ref_key": "ACHIEVE_DOG_WHISPERER_TITLE",
+      "old": "新手阿努比斯",
+      "new": "阿努比死"
+    },
+    {
+      "rfl_key": "achieve_dragon_age_desc",
+      "ref_key": "ACHIEVE_DRAGON_AGE_DESC",
+      "old": "在单层中种植 10 个龙舌兰",
+      "new": "在一关内种植 10 株火龙草"
+    },
+    {
+      "rfl_key": "achieve_egypt_stars_desc",
+      "ref_key": "ACHIEVE_EGYPT_STARS_DESC",
+      "old": "完成神秘埃及",
+      "new": "完成上古埃及"
+    },
+    {
+      "rfl_key": "achieve_egypt_stars_title",
+      "ref_key": "ACHIEVE_EGYPT_STARS_TITLE",
+      "old": "坚果不凡",
+      "new": "坚果不一般"
+    },
+    {
+      "rfl_key": "achieve_eighties_back_from_the_future_3_desc",
+      "ref_key": "ACHIEVE_EIGHTIES_BACK_FROM_THE_FUTURE_3_DESC",
+      "old": "在同一关卡种植时光柚 3 次",
+      "new": "在一关内种植 3 次逆时百里香"
+    },
+    {
+      "rfl_key": "achieve_eighties_back_from_the_future_3_title",
+      "ref_key": "ACHIEVE_EIGHTIES_BACK_FROM_THE_FUTURE_3_TITLE",
+      "old": "从未来归来 3",
+      "new": "回到未来 3"
+    },
+    {
+      "rfl_key": "achieve_eighties_beet_it_desc",
+      "ref_key": "ACHIEVE_EIGHTIES_BEET_IT_DESC",
+      "old": "仅使用动感甜菜击败僵尸完成关卡",
+      "new": "只使用节拍甜菜消灭僵尸，完成一道关卡"
+    },
+    {
+      "rfl_key": "achieve_eighties_beet_it_title",
+      "ref_key": "ACHIEVE_EIGHTIES_BEET_IT_TITLE",
+      "old": "甜菜出击",
+      "new": "甜菜节拍"
+    },
+    {
+      "rfl_key": "achieve_eighties_breaking_it_off_desc",
+      "ref_key": "ACHIEVE_EIGHTIES_BREAKING_IT_OFF_DESC",
+      "old": "在音响僵尸用歌声表达感情之前击败它",
+      "new": "在音响僵尸播放情歌之前消灭它"
+    },
+    {
+      "rfl_key": "achieve_eighties_breaking_it_off_title",
+      "ref_key": "ACHIEVE_EIGHTIES_BREAKING_IT_OFF_TITLE",
+      "old": "一刀两断",
+      "new": "请勿扰民"
+    },
+    {
+      "rfl_key": "achieve_eighties_drop_the_mic_desc",
+      "ref_key": "ACHIEVE_EIGHTIES_DROP_THE_MIC_DESC",
+      "old": "完成霓虹旋音游，B面",
+      "new": "完成炫光魔音游，B 面"
+    },
+    {
+      "rfl_key": "achieve_eighties_drop_the_mic_title",
+      "ref_key": "ACHIEVE_EIGHTIES_DROP_THE_MIC_TITLE",
+      "old": "放下麦克风",
+      "new": "潇洒扔麦"
+    },
+    {
+      "rfl_key": "achieve_eighties_head_banger_desc",
+      "ref_key": "ACHIEVE_EIGHTIES_HEAD_BANGER_DESC",
+      "old": "在朋克僵尸上使用磁铁蘑菇",
+      "new": "用磁铁菇对付朋克僵尸"
+    },
+    {
+      "rfl_key": "achieve_eighties_head_banger_title",
+      "ref_key": "ACHIEVE_EIGHTIES_HEAD_BANGER_TITLE",
+      "old": "甩头族",
+      "new": "头巾"
+    },
+    {
+      "rfl_key": "achieve_eighties_volume_goes_to_sixteen_title",
+      "ref_key": "ACHIEVE_EIGHTIES_VOLUME_GOES_TO_SIXTEEN_TITLE",
+      "old": "音量开到 16",
+      "new": "音量调到 16 档"
+    }
+  ],
+  "skipped_en_mismatch_count": 1034,
+  "skipped_en_mismatch_samples": [
+    {
+      "key": "ADVICE_BANANA_TUTORIAL_GOOD_JOB",
+      "ref_original": "Great! You can also drag and drop to target attacks",
+      "en": "Great! You can also drag and drop to target attacks."
+    },
+    {
+      "key": "ADVICE_BANANA_TUTORIAL_SELECT",
+      "ref_original": "Tap on the banana to select it",
+      "en": "Tap on the banana to select it."
+    },
+    {
+      "key": "ADVICE_BANANA_TUTORIAL_SHOOT",
+      "ref_original": "Tap to pick target tile for attack",
+      "en": "Tap to pick target tile for attack."
+    },
+    {
+      "key": "ADVICE_GRAVEBUSTERS_ON_GRAVES",
+      "ref_original": "Grave Busters can only be planted on graves",
+      "en": "Grave Busters can only be planted on graves and certain objects."
+    },
+    {
+      "key": "ADVICE_MORE_SUNFLOWERS",
+      "ref_original": "More Sunflowers mean more sun./r\nMore sun means MORE PLANTS!",
+      "en": "The more sunflowers you have,\r\nthe faster you can grow plants!"
+    },
+    {
+      "key": "ADVICE_NOT_ON_CRATERS",
+      "ref_original": "You can't plant on craters.",
+      "en": "You can't plant that here."
+    },
+    {
+      "key": "ADVICE_NOT_ON_ICEBLOCKS",
+      "ref_original": "You can't plant on blocks or statues.",
+      "en": "You can't plant on that object."
+    },
+    {
+      "key": "ADVICE_PLANTED_PEASHOOTER",
+      "ref_original": "Nicely done! You can also plant by tapping/r\nthe seed packet and then the lawn",
+      "en": "Nicely done! You can also plant by tapping\r\nthe seed packet and then the lawn."
+    },
+    {
+      "key": "ADVICE_PLANTING_NEEDS_GROUND",
+      "ref_original": "Spikeweeds can only be planted on solid ground",
+      "en": "Spikeweeds can only be planted on solid ground."
+    },
+    {
+      "key": "ADVICE_PLANT_BOWLING_FOUL_LINE",
+      "ref_original": "Place your bulb to the left of the line",
+      "en": "Place your bulb to the left of the line."
+    },
+    {
+      "key": "ADVICE_PLANT_FOOD_NOT_SIMULTANEOUS",
+      "ref_original": "Plant Food would create too many plants",
+      "en": "Plant Food would create too many plants."
+    },
+    {
+      "key": "ADVICE_PLANT_LILYPADS_ON_WET",
+      "ref_original": "Lily Pads can only be planted to the right of the tide line",
+      "en": "Lily Pads can only be planted to the right of the tide line."
+    },
+    {
+      "key": "ADVICE_PLANT_LILYPAD_ON_LILYPAD",
+      "ref_original": "Lily Pads can't be planted on Lily Pads",
+      "en": "Lily Pads can't be planted on Lily Pads."
+    },
+    {
+      "key": "ADVICE_PLANT_MORE_LILYPADS",
+      "ref_original": "Try planting more Lily Pads",
+      "en": "Try planting more Lily Pads."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_FISHERMAN",
+      "ref_original": "You can't plant on a Fisherman Zombie",
+      "en": "You can't plant on a Fisherman Zombie."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_GRAVE",
+      "ref_original": "You can't plant on graves",
+      "en": "You can't plant on that object."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_KING",
+      "ref_original": "You can't plant on a Zombie King",
+      "en": "You can't plant on a Zombie King."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_LAVA",
+      "ref_original": "You can't plant on a lava puddle",
+      "en": "You can't plant on a lava puddle."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_MOLD",
+      "ref_original": "You can't plant on the mold colonies",
+      "en": "You can't plant on the mold colonies."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_POTIONS",
+      "ref_original": "You can't plant on evil potions",
+      "en": "You can't plant on beverages."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_RAIL",
+      "ref_original": "You can't plant on tracks without a cart",
+      "en": "You can't plant on tracks without a cart."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_SCORCH",
+      "ref_original": "You can't plant on scorched tiles",
+      "en": "You can't plant on scorched tiles."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_SHARKS",
+      "ref_original": "You can't plant on school of sharks",
+      "en": "You can't plant on school of sharks."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_SURFBOARD",
+      "ref_original": "You can't plant on surfboards",
+      "en": "You can't plant on that object."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_TIDE",
+      "ref_original": "You can't plant this on the tide",
+      "en": "You can't plant this on the tide."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_VASES",
+      "ref_original": "You can't plant on vases",
+      "en": "You can't plant on vases."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_WATER",
+      "ref_original": "Plant a Lily Pad first",
+      "en": "Plant a Lily Pad first."
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_SIMULTANEOUS",
+      "ref_original": "Too many plants to plant now",
+      "en": "Too many plants to plant now."
+    },
+    {
+      "key": "ADVICE_PLANT_ONLY_ON_WAVES",
+      "ref_original": "Aquatic plants can only be planted in water",
+      "en": "Aquatic plants can only be planted in water."
+    },
+    {
+      "key": "ADVICE_PLANT_SUNFLOWER1",
+      "ref_original": "Sunflowers are very important plants./r\nPlant one!",
+      "en": "Sunflowers are very important plants!\r\nPlace Sunflowers behind Peashooters to protect them."
+    }
+  ],
+  "skipped_empty": 50,
+  "skipped_tech": 0,
+  "spotcheck": {
+    "STAT_RECHARGE": "冷却时间",
+    "STAT_SUNCOST": "阳光消耗",
+    "STAT_TOUGHNESS": "生命值",
+    "STAT_SUNPROD": "阳光产量",
+    "SUNFLOWER": "向日葵",
+    "SNOWPEA": "雪花豌豆",
+    "EGYPT": "上古埃及",
+    "COWBOY": "狂野西部",
+    "AKEE": "阿开木-木"
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "p2a_count": 85,
+  "p2b_count": 321,
+  "p2c_count": 5,
+  "skipped_other_count": 609,
+  "skipped_failed_count": 0,
+  "p2a_samples": [
+    {
+      "key": "ADVICE_BANANA_TUTORIAL_GOOD_JOB",
+      "cat": "orig_substring_of_en",
+      "old": "太好了！你也可以拖放来进行目标攻击。",
+      "new": "就是这样！你也可以拖动到目标上来开火"
+    },
+    {
+      "key": "ADVICE_BANANA_TUTORIAL_SELECT",
+      "cat": "orig_substring_of_en",
+      "old": "点击香蕉以选择它。",
+      "new": "轻点香蕉，选择它"
+    },
+    {
+      "key": "ADVICE_BANANA_TUTORIAL_SHOOT",
+      "cat": "orig_substring_of_en",
+      "old": "点击选择攻击的目标格子。",
+      "new": "轻点目标地砖，发起攻击"
+    },
+    {
+      "key": "ADVICE_PLANTED_PEASHOOTER",
+      "cat": "orig_substring_of_en",
+      "old": "做得好！你也可以通过点击种子包然后再点击草坪来种植。",
+      "new": "干得好！你也可以先轻点\r\n种子包，再轻点草坪来进行种植"
+    },
+    {
+      "key": "ADVICE_PLANTING_NEEDS_GROUND",
+      "cat": "orig_substring_of_en",
+      "old": "地刺只能种植在坚实的地面上。",
+      "new": "地刺草只能种在坚固的地面上"
+    },
+    {
+      "key": "ADVICE_PLANT_BOWLING_FOUL_LINE",
+      "cat": "orig_substring_of_en",
+      "old": "将你的灯泡放在线的左边。",
+      "new": "把鳞茎种在那条线的左边"
+    },
+    {
+      "key": "ADVICE_PLANT_FOOD_NOT_SIMULTANEOUS",
+      "cat": "orig_substring_of_en",
+      "old": "植物食物会产生太多植物。",
+      "new": "植物养料创造出来的植物太多了"
+    },
+    {
+      "key": "ADVICE_PLANT_LILYPADS_ON_WET",
+      "cat": "orig_substring_of_en",
+      "old": "睡莲只能种植在潮线的右侧。",
+      "new": "睡莲叶只能种在海岸线右边"
+    },
+    {
+      "key": "ADVICE_PLANT_LILYPAD_ON_LILYPAD",
+      "cat": "orig_substring_of_en",
+      "old": "荷叶不能种在荷叶上。",
+      "new": "睡莲叶上面不能再种一株睡莲叶"
+    },
+    {
+      "key": "ADVICE_PLANT_MORE_LILYPADS",
+      "cat": "orig_substring_of_en",
+      "old": "试着多种些莲叶。",
+      "new": "试着种更多的睡莲叶吧"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_FISHERMAN",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在渔夫僵尸上种植。",
+      "new": "你不能在渔夫僵尸身上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_KING",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在僵尸王上种植。",
+      "new": "你不能在僵尸国王身上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_LAVA",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在熔岩水坑上种植。",
+      "new": "你不能在岩浆覆盖的地方种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_MOLD",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在霉菌群上种植。",
+      "new": "你不能在霉菌落上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_RAIL",
+      "cat": "orig_substring_of_en",
+      "old": "没有车你不能在轨道上种植。",
+      "new": "你不能在没有矿车的轨道上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_SCORCH",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在烧焦的瓷砖上种植。",
+      "new": "你不能在被烤焦的地砖上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_SHARKS",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在鲨鱼学校里种植。",
+      "new": "你不能在鲨鱼群中种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_TIDE",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在潮水上种这个。",
+      "new": "你不能在潮水上种植物"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_VASES",
+      "cat": "orig_substring_of_en",
+      "old": "你不能在花瓶里种植。",
+      "new": "你不能在花瓶上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_WATER",
+      "cat": "orig_substring_of_en",
+      "old": "请先种下一片莲叶。",
+      "new": "请先种睡莲叶"
+    }
+  ],
+  "p2b_samples": [
+    {
+      "key": "AILMINT_DESCRIPTION",
+      "cat": "both_flavor_diff",
+      "old": "{KEYWORD}艾薄荷科植物：\r\n{STAT}心花怒放\r\n{STAT}辣椒豆\r\n{STAT}大喷菇\r\n{STAT}大蒜\r\n{STAT}粘液豌豆\r\n{STAT}小鬼僵尸 梨\r\n{STAT}炼金百合\r\n{STAT}香水蘑菇\r\n{STAT}小喷菇\r\n{STAT}暗影菇\r\n{STAT}",
+      "new": "{KEYWORD}艾薄荷科植物：\r\n{STAT}心花怒放\r\n{STAT}辣椒豆\r\n{STAT}大喷菇\r\n{STAT}大蒜\r\n{STAT}粘液豌豆\r\n{STAT}小鬼僵尸 梨\r\n{STAT}炼金百合\r\n{STAT}香水蘑菇\r\n{STAT}小喷菇\r\n{STAT}暗影菇\r\n{STAT}"
+    },
+    {
+      "key": "AKEE_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}特殊：{STAT}每次后续弹跳造成的伤害减少\r\n\r\n{FLAVOR}自主弹射发射器正在积极寻找A.K.E.E.的不同缩写，因为说实话，“Katapulting（弹射）”根本不起作用。",
+      "new": "{KEYWORD}特殊：{STAT}每次后续弹跳造成的伤害减少\r\n\r\n{FLAVOR}阿开木木已经受够其他植物叫他“阿开林”了，于是他在两个木之间加了一横。虽然这样看起来像是个表情。"
+    },
+    {
+      "key": "ALOE_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}特殊: {STAT}在植物受损时触发\r\n{KEYWORD}弱点: {STAT}无法治疗 甜菜护卫, 冬青屏障 和 毛茛\r\n\r\n{FLAVOR}芦荟喜欢安抚。他喜欢缓解，他喜欢恢复，他喜欢修复。但不要让他复活。他对复活很敏感。",
+      "new": "{KEYWORD}特殊: {STAT}在植物受损时触发\r\n{KEYWORD}弱点: {STAT}无法治疗 甜菜护卫, 冬青屏障 和 毛茛\r\n\r\n{FLAVOR}芦荟喜欢抚慰受伤的人，无论是帮你包扎体伤，还是治愈心伤。但记住，别和他提关于复活的事，他一听到这两个字就变脸。"
+    },
+    {
+      "key": "APPEASEMINT_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}安抚薄荷家族植物：\r\n{STAT}电力豌豆\r\n{STAT}火焰豌豆\r\n{STAT}粘液豌豆\r\n{STAT}豌豆荚\r\n{STAT}豌豆射手\r\n{STAT}原始豌豆射手\r\n{STAT}双发射手\r\n{STAT}暗影豌豆\r\n{STAT}寒冰射手\r\n{STAT}投掷豌豆\r",
+      "new": "{KEYWORD}安抚薄荷家族植物：\r\n{STAT}电力豌豆\r\n{STAT}火焰豌豆\r\n{STAT}粘液豌豆\r\n{STAT}豌豆荚\r\n{STAT}豌豆射手\r\n{STAT}原始豌豆射手\r\n{STAT}双发射手\r\n{STAT}暗影豌豆\r\n{STAT}寒冰射手\r\n{STAT}投掷豌豆\r"
+    },
+    {
+      "key": "APPLEMORTAR_DESCRIPTION",
+      "cat": "both_flavor_diff",
+      "old": "{FLAVOR}苹果迫击炮将三个僵尸当场炸死。轰啪！这下让他们见识见识！让他们全都见识见识！",
+      "new": "{FLAVOR}苹果迫击炮让三只僵尸在路上晕死了。太强了，有被他装到！真的有被他装到！"
+    },
+    {
+      "key": "ARMAMINT_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}阿尔玛薄荷科植物：\r\n{STAT}A.K.E.E.\r\n{STAT}苹果研钵\r\n{STAT}香蕉发射器\r\n{STAT}爆浆藤\r\n{STAT}心花怒放\r\n{STAT}卷心菜投手\r\n{STAT}椰子大炮\r\n{STAT}黄昏投手\r\n{STAT}玉米投手\r\n{STAT}西",
+      "new": "{KEYWORD}阿尔玛薄荷科植物：\r\n{STAT}A.K.E.E.\r\n{STAT}苹果研钵\r\n{STAT}香蕉发射器\r\n{STAT}爆浆藤\r\n{STAT}心花怒放\r\n{STAT}卷心菜投手\r\n{STAT}椰子大炮\r\n{STAT}黄昏投手\r\n{STAT}玉米投手\r\n{STAT}西"
+    },
+    {
+      "key": "BANANA_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}用法: {STAT}点击以启动，点击目标方块发射\r\n{KEYWORD}射程: {STAT}草地上的任何位置\r\n{KEYWORD}特殊: {STAT}撞击时在小范围内爆炸\r\n\r\n{FLAVOR}尽量避免刻板印象非常重要。刻板印象往往完全错误，而且还会伤人。但说实话",
+      "new": "{KEYWORD}用法: {STAT}点击以启动，点击目标方块发射\r\n{KEYWORD}射程: {STAT}草地上的任何位置\r\n{KEYWORD}特殊: {STAT}撞击时在小范围内爆炸\r\n\r\n{FLAVOR}尽自己所能地去避免刻板印象十分重要。因为它们很多时候根本不正确，而且还"
+    },
+    {
+      "key": "BLASTBERRY_DESCRIPTION",
+      "cat": "both_flavor_diff",
+      "old": "{FLAVOR}爆浆藤 狞笑着自言自语。他想着投掷小型炸弹。他一直在研究这件事，他知道当事情发生时会引起很大轰动。“快了，”他低声说。",
+      "new": "{FLAVOR} 爆莓藤蔓时常在那里自娱自乐。最近，他就在想象自己可以投射炸弹。他看了很多关于这个的书，知道自己一旦练成，一定会惹所有人的注目。“很快，我就能……”他小声喃喃道。"
+    },
+    {
+      "key": "BLOCKOLI_DESCRIPTION",
+      "cat": "both_flavor_diff",
+      "old": "{KEYWORD}攻击范围详情：{STAT}可以攻击上下车道的目标\r\n{KEYWORD}特殊：{STAT}不能被挖掘机僵尸挖掘或被渔夫僵尸拉走\r\n{KEYWORD}特殊：{STAT}可以阻挡会飞的僵尸\r\n\r\n{FLAVOR}Blockoli 不怕被吃掉，那是战场上的生活。然而，他",
+      "new": "{KEYWORD}攻击范围详情：{STAT}可以攻击上下车道的目标\r\n{KEYWORD}特殊：{STAT}不能被挖掘机僵尸挖掘或被渔夫僵尸拉走\r\n{KEYWORD}特殊：{STAT}可以阻挡会飞的僵尸\r\n\r\n{FLAVOR}“嘿，老铁们！西拦花在此！咋地了？有僵尸啊！看我把他揍得"
+    },
+    {
+      "key": "BLOOMINGHEARTS_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}伤害：{STAT}40（投射物），每个伤害叠加15\r\n{KEYWORD}特性：{STAT}伤害会在多个心花怒放中增加\r\n\r\n{FLAVOR}心花怒放喜欢僵尸。她因此受到其他植物的嘲笑，但她坚持己见。她喜欢僵尸，对此毫不道歉。",
+      "new": "{KEYWORD}伤害：{STAT}40（投射物），每个伤害叠加15\r\n{KEYWORD}特性：{STAT}伤害会在多个心花怒放中增加\r\n\r\n{FLAVOR}铃儿草深爱着僵尸。尽管她总是因此被她的植物伙伴恶语相向，但这依然改变不了她的观点。她就是这么爱僵尸，而爱不需要道歉。"
+    },
+    {
+      "key": "BLOVER_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}用法：{STAT}一次性使用，即刻生效\r\n{KEYWORD}特殊：{STAT}击飞所有飞行僵尸\r\n\r\n{FLAVOR}周围最幸运的特技三叶草，三叶草是最近获得特技奖的获奖者。你可以在《灯泡虚构》、《根茎》和《寻找花》中看到他的作品。他还在社区中心每周二开设特技课",
+      "new": "{KEYWORD}用法：{STAT}一次性使用，即刻生效\r\n{KEYWORD}特殊：{STAT}击飞所有飞行僵尸\r\n\r\n{FLAVOR}他是最幸运的三叶草，就在不久前，他还刚被授予了“最佳特技奖”的荣誉。他的特技表演家喻户晓，像是《球茎小说》、《寻根究底》、《找花》等大作中都有他"
+    },
+    {
+      "key": "BOINGSETTA_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}用途：{STAT}严重破坏各种网格物品\r\n{KEYWORD}用途：{STAT}摧毁小生物\r\n\r\n{FLAVOR}弹跳秋海棠是一种充满弹性的植物，它积极的心态感染力十足！寒冷效果仅是附带的结果。",
+      "new": "{KEYWORD}用途：{STAT}严重破坏各种网格物品\r\n{KEYWORD}用途：{STAT}摧毁小生物\r\n\r\n{FLAVOR}一品轰其实是一株富有春意的植物，她积极的态度很令人愉快！不过她同时也能给予僵尸如寒冬般的感受。"
+    },
+    {
+      "key": "BOMBARDMINT_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}炸弹薄荷家族植物：\r\n{STAT}香蕉发射器\r\n{STAT}浆果发射器\r\n{STAT}炸弹石榴\r\n{STAT}樱桃炸弹\r\n{STAT}蒲公英\r\n{STAT}遁地根\r\n{STAT}爆炸坚果\r\n{STAT}幽灵辣椒\r\n{STAT}葡萄炸弹\r\n{STAT}土豆地雷\r\n",
+      "new": "{KEYWORD}炸弹薄荷家族植物：\r\n{STAT}香蕉发射器\r\n{STAT}浆果发射器\r\n{STAT}炸弹石榴\r\n{STAT}樱桃炸弹\r\n{STAT}蒲公英\r\n{STAT}遁地根\r\n{STAT}爆炸坚果\r\n{STAT}幽灵辣椒\r\n{STAT}葡萄炸弹\r\n{STAT}土豆地雷\r\n"
+    },
+    {
+      "key": "BOMBEGRANATE_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}用法：{STAT}一次性使用，即刻生效\r\n\r\n{FLAVOR}Bombegranate 是爆炸性的，但她喜欢认为自己不止如此。她也是落叶性的，而且有放纵的一面！",
+      "new": "{KEYWORD}用法：{STAT}一次性使用，即刻生效\r\n\r\n{FLAVOR}炸弹石榴极具爆炸性，但是她觉得还应该有更多的词来描述她。好吧，她也是一种落叶植物，并且没有假种皮！"
+    },
+    {
+      "key": "BONKCHOY_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}特殊: {STAT}可以向前或向后攻击\r\n\r\n{FLAVOR}兼职的自由牙医，他本月提供特别活动——两颗牙只收一颗钱！",
+      "new": "{KEYWORD}特殊: {STAT}可以向前或向后攻击\r\n\r\n{FLAVOR}作为一个兼职牙医，他在这个月开出了一个优惠 - 拔牙拔一送一！"
+    },
+    {
+      "key": "BOOMFLOWER_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}使用方法：{STAT}轻触或拖动从 爆气球花 移动气球到瓦片\r\n{KEYWORD}特殊：{STAT}气球每叠加一层增加 300 点伤害\r\n\r\n{FLAVOR}爆气球花的气球充满氢气和雾化煤油。这是一种反安全措施。",
+      "new": "{KEYWORD}使用方法：{STAT}轻触或拖动从 爆气球花 移动气球到瓦片\r\n{KEYWORD}特殊：{STAT}气球每叠加一层增加 300 点伤害\r\n\r\n{FLAVOR}爆炸气球花的气球里充满了氢气和雾化煤油气，十分危险！"
+    },
+    {
+      "key": "BOWLINGBULB_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}伤害详情：{STAT}更大的灯泡造成更多伤害\r\n\r\n{FLAVOR}猜猜哪支队伍已经连续五年赢得联盟冠军？是保龄灯泡队。他们正势如破竹。你和你的朋友们认为你们有能力阻止他们吗？是的，当然。继续做梦吧，伙计。",
+      "new": "{KEYWORD}伤害详情：{STAT}更大的灯泡造成更多伤害\r\n\r\n{FLAVOR}猜猜是哪一支球队又一次夺冠，并且已经守擂五年了？保鳞茎队，毫无悬念。他们现在的名气可以说是滔滔“滚滚”了。你觉得自己能击败他们？继续做梦吧，小子。"
+    },
+    {
+      "key": "BRAMBLEBUSH_DESCRIPTION",
+      "cat": "both_flavor_diff",
+      "old": "{KEYWORD}用法：{STAT}可以在僵尸被困时拔掉它们的护甲\r\n{KEYWORD}用法：{STAT}浆果簇显示剩余的陷阱\r\n\r\n{FLAVOR}许多朋友和家人建议他去追求不同的职业，比如从事葡萄栽培以及其他藤蔓相关的行业，并告诉他目前的职业是一个陷阱。他直到毕业才意识到他们",
+      "new": "{KEYWORD}用法：{STAT}可以在僵尸被困时拔掉它们的护甲\r\n{KEYWORD}用法：{STAT}浆果簇显示剩余的陷阱\r\n\r\n{FLAVOR}莓棘灌木丛浑身上下都是刺，非常危险——险象“丛”生。"
+    },
+    {
+      "key": "BUTTERCUP_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}特别：{STAT}制作抹黄油的浓稠块\r\n\r\n{FLAVOR}毛茛甜美极了，但她威力十足！“我不便宜，”她说，指的是她固定的 25 太阳费用。“我是合理的。”",
+      "new": "{KEYWORD}特别：{STAT}制作抹黄油的浓稠块\r\n\r\n{FLAVOR}黄油毛茛虽然很便宜——只需要花费 25 阳光，但她其实非常厉害！“啥叫便宜啊？”她反驳说，“这明明是‘物美价廉’好吗！”"
+    },
+    {
+      "key": "CACTUS_DESCRIPTION",
+      "cat": "flavor_suffix_in_en",
+      "old": "{KEYWORD}特殊：{STAT}当僵尸靠近时会隐藏并造成地面伤害\r\n\r\n{FLAVOR}最近仙人掌的生活真的有了很大变化。签书、拍电影、参加卡车展……她只是想专注于保持谦逊，并像往常一样发射刺。\r\n",
+      "new": "{KEYWORD}特殊：{STAT}当僵尸靠近时会隐藏并造成地面伤害\r\n\r\n{FLAVOR}最近仙人掌的生活真的变了很多。售书会，电影，卡车秀……她只是想像往常一样去扎人。\r\n"
+    }
+  ],
+  "p2c_samples": [
+    {
+      "key": "BOWLINGBULB_DESCRIPTION_HEADER",
+      "old": "保龄球灯泡滚动的投球可以弹向多个僵尸。",
+      "new": "保鳞茎可以发射在数只僵尸间弹射的滚动子弹。鳞茎越大，破坏力越大。"
+    },
+    {
+      "key": "BRAMBLEBUSH_DESCRIPTION_HEADER",
+      "old": "荆棘灌木困住并伤害了一只僵尸。",
+      "new": "莓棘灌木丛可以困住僵尸，并对它们造成伤害。莓果簇的数量表示还剩多少个陷阱。"
+    },
+    {
+      "key": "CACTUS_DESCRIPTION_HEADER",
+      "old": "仙人掌可以用尖刺穿透数名敌人！",
+      "new": "仙人掌可以用尖刺穿透数名敌人！当僵尸接近时，可以藏在地下发动攻击。可以伸长身体扎破气球僵尸的气球。"
+    },
+    {
+      "key": "DUSKLOBBER_DESCRIPTION_HEADER",
+      "old": "黄昏投手s 是影子植物，它们会在车道上抛出爆炸性芽。",
+      "new": "薄暮掷手是一株暗影植物，可以向本行的目标投掷爆炸花蕾。暗影强化后，薄暮掷手可以向邻近 3 行投掷花蕾。"
+    },
+    {
+      "key": "NIGHTSHADE_DESCRIPTION_HEADER",
+      "old": "夜幕菇s 是影子植物，它们会用松散的叶子拍打僵尸。",
+      "new": "夜影茄是一株暗影植物，可以用叶子攻击僵尸。受到其他暗影植物的强化后，它会狠狠扔出叶子，然后重新长出来。"
+    }
+  ],
+  "skipped_other_samples": [
+    {
+      "key": "ADVICE_GRAVEBUSTERS_ON_GRAVES",
+      "cat": "orig_substring_of_en",
+      "en": "Grave Busters can only be planted on graves and certain objects.",
+      "ref": "墓碑吞噬者只能种在墓碑上"
+    },
+    {
+      "key": "ADVICE_MORE_SUNFLOWERS",
+      "cat": "other",
+      "en": "The more sunflowers you have,\r\nthe faster you can grow plants!",
+      "ref": "更多的向日葵，意味着有更多的阳光，/r\n而更多的阳光，则意味着更多的植物！"
+    },
+    {
+      "key": "ADVICE_NOT_ON_CRATERS",
+      "cat": "other",
+      "en": "You can't plant that here.",
+      "ref": "你不能在坑里种植。"
+    },
+    {
+      "key": "ADVICE_NOT_ON_ICEBLOCKS",
+      "cat": "other",
+      "en": "You can't plant on that object.",
+      "ref": "你不能把植物种在石块或雕像上。"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_GRAVE",
+      "cat": "other",
+      "en": "You can't plant on that object.",
+      "ref": "你不能在墓碑上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_POTIONS",
+      "cat": "other",
+      "en": "You can't plant on beverages.",
+      "ref": "你不能在邪恶药水上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_NOT_ON_SURFBOARD",
+      "cat": "other",
+      "en": "You can't plant on that object.",
+      "ref": "你不能在冲浪板上种植"
+    },
+    {
+      "key": "ADVICE_PLANT_SUNFLOWER1",
+      "cat": "other",
+      "en": "Sunflowers are very important plants!\r\nPlace Sunflowers behind Peashooters to protect them.",
+      "ref": "向日葵是十分重要的植物。/r\n快种一株吧！"
+    },
+    {
+      "key": "ADVICE_PLANT_SUNFLOWER2",
+      "cat": "other",
+      "en": "Plant at least 3 Sunflowers!",
+      "ref": "向日葵能生产阳光！"
+    },
+    {
+      "key": "ADVICE_PLANT_SUNFLOWER4",
+      "cat": "other",
+      "en": "Plant at least 3 Sunflowers!",
+      "ref": "试着在每行都至少种下 1 株向日葵！"
+    },
+    {
+      "key": "ALOE_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Aloes heal injured plants to their immediate right.",
+      "ref": "芦荟可以在右边植物的生命值低于一定水平时治疗它。"
+    },
+    {
+      "key": "APPEASEMINT_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Appease-mints provide a temporary boost to all Appease-mint Family plants on the lawn.",
+      "ref": "喷薄可以喷出许多能破裂成小豌豆的大豌豆，并暂时加强草坪上所有喷薄家族的植物。"
+    },
+    {
+      "key": "APPLEMORTAR_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Apple Mortars launch heavy-damage apple cores down three lanes.",
+      "ref": "苹果迫击炮可以投掷苹果核，眩晕三条路上的僵尸。"
+    },
+    {
+      "key": "APPLEMORTAR_TOOLTIP",
+      "cat": "other",
+      "en": "Lobs heavy-damage cores down three lanes",
+      "ref": "向三行投掷带眩晕效果的果核"
+    },
+    {
+      "key": "APP_UPDATE_REQUIRED",
+      "cat": "other",
+      "en": "Download the latest version of Plants vs. Zombies 2 from the App Store to continue.",
+      "ref": "需要访问商店下载最新版本才能继续游玩"
+    },
+    {
+      "key": "AWARD_SCREEN_WORLDKEY_EIGHTIES",
+      "cat": "other",
+      "en": "You have secured access to the urgent rhythms of Neon Mixtape Tour.",
+      "ref": "你现在可以感受炫光魔音游的跃动节拍了。"
+    },
+    {
+      "key": "BLASTBERRY_TOOLTIP",
+      "cat": "other",
+      "en": "Protects a plant inside and lobs damaging berries",
+      "ref": "保护其他植物，同时投射炸弹"
+    },
+    {
+      "key": "BOINGSETTA_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Boingsettas slam the ground in a \"boing\" that heavily damages grid items and chills zombies.",
+      "ref": "一品轰可以“轰”地一声猛击地面上的障碍物，击退僵尸，并让它们冷缓。"
+    },
+    {
+      "key": "BOINGSETTA_TOOLTIP",
+      "cat": "other",
+      "en": "Damages grid items and chills zombies",
+      "ref": "击退并冷缓僵尸"
+    },
+    {
+      "key": "BOMBARDMINT_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Bombard-mints set off a massive explosion on board and provide a temporary boost to all Bombard-mint",
+      "ref": "爆薄可以在草坪上制造数次爆炸，并暂时加强草坪上所有的爆薄家族植物。"
+    },
+    {
+      "key": "BOOMFLOWER_TOOLTIP",
+      "cat": "other",
+      "en": "Tap to place a mine, mines can be stacked for more damage",
+      "ref": "生成气球雷区"
+    },
+    {
+      "key": "CHILIBEAN_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Chili Beans deliver a crippling bout of gastrointestinal distress.",
+      "ref": "辣豆能让僵尸的肠道翻云覆雨。"
+    },
+    {
+      "key": "CLAIM_X_JOUST_FREE_PLAYS_DESC",
+      "cat": "other",
+      "en": "Claim {COUNT} Arena Free Plays, get gems!",
+      "ref": "使用你的竞技场免费游玩券，赢得宝石吧！"
+    },
+    {
+      "key": "COLDSNAPDRAGON_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Cold Snapdragons breathe icy mist into 6 adjacent tiles.",
+      "ref": "冰龙草可以向周围的 6 块地砖吐出冰雾龙息，不仅可以对僵尸造成伤害，还能减慢它们的速度。"
+    },
+    {
+      "key": "CREDITS_COPYRIGHT",
+      "cat": "other",
+      "en": "Plants vs. Zombies 2 ©2021 Electronic Arts Inc. Plants vs. Zombies, PopCap, EA and the EA logo are t",
+      "ref": "Plants vs. Zombies 2 ©2025 Electronic Arts Inc. 《植物大战僵尸》、PopCap、EA 及 EA logo 都是 Electronic Arts Inc."
+    },
+    {
+      "key": "DAILY_COMPLETE_ALL",
+      "cat": "other",
+      "en": "Complete All Daily Activities!",
+      "ref": "完成 {X} 项日常活动！"
+    },
+    {
+      "key": "DANGER_ROOM_BUTTON_RETIRE",
+      "cat": "other",
+      "en": "EXIT",
+      "ref": "退出"
+    },
+    {
+      "key": "DARTICHOKE_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Dartichokes fire high-damage darts down the lane, prioritizing especially dangerous zombies such as ",
+      "ref": "飞镖洋蓟可以向所在行发射高伤害的飞镖，并且会优先攻击诸如巫师、章鱼僵尸、治疗师等高危险度的僵尸。飞镖伤害不俗，但数量有限。"
+    },
+    {
+      "key": "DAZEYCHAIN_DESCRIPTION_HEADER",
+      "cat": "other",
+      "en": "Dazey Chains grow through stages, becoming more powerful and releasing a stalling puff of gas at eac",
+      "ref": "迷乱雏菊束可以通过生长来变得更加强大，每次生长，有毒气体就会提升一个等级。"
+    },
+    {
+      "key": "DAZEYCHAIN_TOOLTIP",
+      "cat": "other",
+      "en": "Grows flowers from time to time and stalls zombies",
+      "ref": "生长后可以释放气体眩晕僵尸"
+    }
+  ],
+  "skipped_failed_samples": [],
+  "spotcheck": {
+    "AKEE_DESCRIPTION": "{KEYWORD}特殊：{STAT}每次后续弹跳造成的伤害减少\r\n\r\n{FLAVOR}阿开木木已经受够其他植物叫他“阿开林”了，于是他在两个木之间加了一横。虽然这样看起来像是个表情。",
+    "ALOE_DESCRIPTION": "{KEYWORD}特殊: {STAT}在植物受损时触发\r\n{KEYWORD}弱点: {STAT}无法治疗 甜菜护卫, 冬青屏障 和 毛茛\r\n\r\n{FLAVOR}芦荟喜欢抚慰受伤的人，无论是帮你包扎体伤，还是治愈心伤。但记住，别和他提关于复活的事，他一听到这两个字就变脸。",
+    "ZOMBIE_PROSPECTOR_DESCRIPTION": "{KEYWORD}生命值：{STAT}190\r\n {KEYWORD}速度：{STAT}0.16\r\n {KEYWORD}特殊：{STAT}炸药爆炸后出现在草坪左侧\r\n {KEYWORD}弱点：{STAT}冷攻击会引爆炸药\r\n\r\n \r\n\r\n{FLAVOR}“从前有个僵尸，整天都在找金子，一直找到老。终于，他在一个雨天吃到了脑子……等等，他的另一只鞋呢？” ",
+    "BUTTON_CANCEL": "取消",
+    "PINATA_PARTY_SPROUT_REWARD_TEXT": "幼芽"
+  }
+}

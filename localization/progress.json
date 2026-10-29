@@ -1,0 +1,13 @@
+{
+  "total_keys": 26637,
+  "changed_from_english": 26552,
+  "remaining_english": 85,
+  "changed_by_category": {
+    "ui": 337,
+    "plant": 431,
+    "zombie": 2640,
+    "narrative": 13400,
+    "other": 9744
+  },
+  "pct_changed": 99.68
+}

@@ -1,0 +1,1048 @@
+{
+  "total_en": 26637,
+  "still_english_actionable_count": 61,
+  "still_english_actionable_sample": [
+    "JOUST_AVATAR_NAME",
+    "LEVELUP_TEXT_ANIM",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_5_INTRO_9",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_5",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_6",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_10",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_11",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_12",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_13",
+    "NARRATIVE_LTE_2023_04_ALTVERZ_15_OUTRO_14",
+    "NARRATIVE_SPONGEBOB_22_INTRO_10",
+    "NARRATIVE_N3XTUNIVERSE_14_INTRO_5",
+    "NARRATIVE_N3XTUNIVERSE_22_INTRO_2",
+    "NARRATIVE_N3XTUNIVERSE_22_INTRO_3",
+    "NARRATIVE_N3XTUNIVERSE_22_INTRO_15",
+    "NARRATIVE_N3XTUNIVERSE_22_INTRO_17",
+    "NARRATIVE_N3XTUNIVERSE_26_INTRO_7",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_170",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_385",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_426",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_572",
+    "RIFT_ZPS_LABEL",
+    "WORLDMAP_EVENT_LOD_SPRING_DANDELION_DESC",
+    "WORLDMAP_EVENT_LOD_SPRING_DEFAULT_DESC",
+    "WORLDMAP_EVENT_LOD_STEAM1_HERE_TITLE",
+    "WORLDMAP_EVENT_LOD_STEAM2_TEASER_TITLE",
+    "WORLDMAP_EVENT_LOD_STEAM_TEASER_TITLE",
+    "WORLDMAP_EVENT_LOD_SHUTTLE_EDGEST_SERVED_TITLE",
+    "WORLDMAP_EVENT_LOD_SHUTTLE_EDGEST_FRIENDS_TITLE",
+    "WORLD_NAME_CARNIVAL",
+    "WORLD_NAME_FAIRYTALE",
+    "NARRATIVE_LTE_2024_01_ZCORP_5_INTRO_14",
+    "NARRATIVE_LTE_2024_01_ZCORP_13_INTRO_16",
+    "NARRATIVE_LTE_2024_01_ZCORP_13_INTRO_19",
+    "NARRATIVE_LTE_2024_03_LUCKOTHEZOMBIE_8_INTRO_6",
+    "NARRATIVE_LTE_2024_03_LUCKOTHEZOMBIE_8_INTRO_10",
+    "NARRATIVE_LTE_2024_03_LUCKOTHEZOMBIE_8_INTRO_21",
+    "NARRATIVE_LTE_2024_03_LUCKOTHEZOMBIE_8_INTRO_23",
+    "NARRATIVE_LTE_2024_11_FOODFIGHT_10_INTRO_11",
+    "NARRATIVE_LTE_2025_04_SPRINGENING_6_INTRO_5",
+    "NARRATIVE_LTE_2025_04_SPRINGENING_6_INTRO_9",
+    "NARRATIVE_LTE_2025_04_SPRINGENING_6_INTRO_12",
+    "NARRATIVE_LTE_2025_04_SPRINGENING_6_INTRO_15",
+    "NARRATIVE_LTE_2025_04_SPRINGENING_7_INTRO_12",
+    "NARRATIVE_LTE_2025_04_SPRINGENING_9_INTRO_9",
+    "NARRATIVE_LTE_2025_06_CHILDRENS_8_INTRO_1",
+    "NARRATIVE_LTE_2025_06_CHILDRENS_8_INTRO_11",
+    "NARRATIVE_LTE_2025_06_CHILDRENS_8_INTRO_14",
+    "NARRATIVE_LTE_2025_06_CHILDRENS_8_INTRO_17",
+    "NARRATIVE_LTE_2025_11_HEROES_4_INTRO_6",
+    "NARRATIVE_LTE_2026_01_ZCORP_5_INTRO_19",
+    "NARRATIVE_LTE_2026_03_SPRINGENING_7_INTRO_8",
+    "NARRATIVE_EPIC_QUEST_METEORZ_8_INTRO_25",
+    "NARRATIVE_EPIC_REALM_MARKET_20_INTRO_1",
+    "NARRATIVE_EPIC_REALM_MARKET_20_INTRO_2",
+    "NARRATIVE_EPIC_REALM_MARKET_20_INTRO_4",
+    "NARRATIVE_EPIC_REALM_MARKET_20_INTRO_6",
+    "NARRATIVE_EPIC_REALM_MARKET_20_INTRO_8",
+    "NARRATIVE_EPIC_REALM_MARKET_20_OUTRO_15",
+    "NARRATIVE_EGYPT_29_INTRO_3",
+    "ZOMBIE_STPATRICK_GLITTER"
+  ],
+  "intentional_still_english_count": 248,
+  "intentional_still_english_sample": [
+    "AGE_GATE_GERMAN_LAW_TEXT",
+    "AGE_GATE_OLD",
+    "AWARD_SCREEN_OBJECTIVE_MET",
+    "AWARD_SCREEN_STAR_LEVEL",
+    "COLOR_FLAVOR",
+    "COLOR_KEYWORD",
+    "COLOR_STAT",
+    "CURRENCY_STRING",
+    "CURRENCY_SYMBOL",
+    "FACEBOOK_FRIENDS_INVITE_BODY2",
+    "JOUST_AVATAR_SELECT_COUNT",
+    "JOUST_COUNTDOWN_1",
+    "JOUST_COUNTDOWN_2",
+    "JOUST_COUNTDOWN_3",
+    "JOUST_TOURNAMENT_REWARDS_TIPS",
+    "LEVEL_MASTERY_LONG_NUMBER",
+    "LEVEL_MASTERY_NUMBER",
+    "LEVEL_NUMBER",
+    "NARRATIVE_SPONGEBOB_11_INTRO_3",
+    "NARRATIVE_SPONGEBOB_11_INTRO_5",
+    "NARRATIVE_SPONGEBOB_11_INTRO_10",
+    "NARRATIVE_SPONGEBOB_18_INTRO_1",
+    "NARRATIVE_SPONGEBOB_22_INTRO_1",
+    "NARRATIVE_SPONGEBOB_22_INTRO_2",
+    "NARRATIVE_SPONGEBOB_22_INTRO_3",
+    "NARRATIVE_SPONGEBOB_22_INTRO_4",
+    "NARRATIVE_SPONGEBOB_22_INTRO_5",
+    "NARRATIVE_SPONGEBOB_22_INTRO_7",
+    "NARRATIVE_SPONGEBOB_22_INTRO_8",
+    "NARRATIVE_SPONGEBOB_22_INTRO_9",
+    "NARRATIVE_SPONGEBOB_22_INTRO_11",
+    "NARRATIVE_SPONGEBOB_22_INTRO_12",
+    "NARRATIVE_SPONGEBOB_22_INTRO_13",
+    "NARRATIVE_SPONGEBOB_22_INTRO_14",
+    "NARRATIVE_SPONGEBOB_22_INTRO_16",
+    "NARRATIVE_SPONGEBOB_22_INTRO_21",
+    "NARRATIVE_N3XTUNIVERSE_5_INTRO_6",
+    "NARRATIVE_N3XTUNIVERSE_11_INTRO_10",
+    "NARRATIVE_N3XTUNIVERSE_11_INTRO_25",
+    "NARRATIVE_N3XTUNIVERSE_19_INTRO_12",
+    "NARRATIVE_N3XTUNIVERSE_24_INTRO_14",
+    "NARRATIVE_N3XTUNIVERSE_25_INTRO_23",
+    "NARRATIVE_N3XTUNIVERSE_25_INTRO_25",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_71",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_77",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_94",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_96",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_97",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_98",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_99",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_100",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_101",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_102",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_103",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_104",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_105",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_106",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_221",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_453",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_595",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_623",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_628",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_631",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_633",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_637",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_640",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_651",
+    "NARRATIVE_N3XTUNIVERSE_31_INTRO_657",
+    "NARRATIVE_BUY_PLANTFOOD_4",
+    "NARRATIVE_COWBOY_OUTRO_ZOMBOSS_INTRO_11",
+    "NARRATIVE_DANGER_ROOM_FAILURE_2",
+    "NARRATIVE_DANGER_ROOM_LAWNMOWER_SUCCESS_2",
+    "NARRATIVE_DANGER_ROOM_LAWNMOWER_SUCCESS_4",
+    "NARRATIVE_DANGER_ROOM_SUCCESS_2",
+    "NARRATIVE_DANGER_ROOM_SUCCESS_4",
+    "NARRATIVE_DANGER_ROOM_SUCCESS_6",
+    "NARRATIVE_DANGER_ROOM_TUTORIAL_1",
+    "NARRATIVE_EGYPT_WORLDMAP_INTRO_3",
+    "NARRATIVE_EGYPT_WORLDMAP_INTRO_6",
+    "NARRATIVE_EGYPT_WORLDMAP_INTRO_OLD_4",
+    "NARRATIVE_FUTURE_INTRO_FIRSTLEVEL_3",
+    "NARRATIVE_HEROES_EVENT_005_INTRO_1",
+    "NARRATIVE_HEROES_EVENT_005_INTRO_3",
+    "NARRATIVE_VETERAN_WARNING_12",
+    "NUMBER_FORMAT_SEPARATOR",
+    "NUMBER_FORMAT_SEPARATOR_COUNT",
+    "PERSISTENT_MESSAGING_OFFLINE",
+    "PERSISTENT_MESSAGING_OFFLINE_CONTENT",
+    "PERSISTENT_MESSAGING_OFFLINE_DESCRIPTION",
+    "PERSISTENT_MESSAGING_OFFLINE_HEADER",
+    "PLANT_LEVEL_PROGRESS_BAR_EXTRA",
+    "PLANT_LEVEL_PROGRESS_BAR_MAX",
+    "PROGRESSIVE_REGISTRATION_NOTE_PERSONAL_INFO",
+    "RIFT_FUEL_STORE_TIME_TO_NEXT",
+    "STARCHALLENGE_BULLET_SYMBOL",
+    "STAT_AREA_1BY3",
+    "STAT_AREA_1BY4",
+    "STAT_AREA_3BY2",
+    "STAT_AREA_3BY3",
+    "STAT_AREA_5BY5"
+  ],
+  "missing_keys": [],
+  "placeholder_mismatch_count": 2,
+  "placeholder_mismatch_sample": [
+    {
+      "key": "ZOMBIE_EGYPT_GARGANTUAR_DESCRIPTION",
+      "en": [
+        "#",
+        "#"
+      ],
+      "zh": []
+    },
+    {
+      "key": "ZOMBIE_FUTURE_DESCRIPTION",
+      "en": [
+        "#"
+      ],
+      "zh": []
+    }
+  ],
+  "macro_mismatch_count": 5,
+  "macro_mismatch_sample": [
+    {
+      "key": "NARRATIVE_EPIC_QUEST_ALOE_08_INTRO_4",
+      "en": [
+        "{SAY:winnie}"
+      ],
+      "zh": [
+        "{SAY:winnie}",
+        "{SAY:winnie}"
+      ]
+    },
+    {
+      "key": "NARRATIVE_EPIC_QUEST_BEGHOULED_BLITZ_001_1_INTRO_4",
+      "en": [
+        "{SAY:winnie}"
+      ],
+      "zh": [
+        "{SAY:winnie}",
+        "{SAY:winnie}"
+      ]
+    },
+    {
+      "key": "NARRATIVE_FUTURE_INTRO_FIRSTLEVEL_4",
+      "en": [
+        "{SAY:crazydave}"
+      ],
+      "zh": [
+        "{EXCITED:crazydave}"
+      ]
+    },
+    {
+      "key": "NARRATIVE_ICEAGE_OUTRO_DANGER_ROOM_KEY_1",
+      "en": [
+        "{NPC_ENTER:crazydave}",
+        "{NPC_ENTER:winnie}",
+        "{EXCITED: winnie}"
+      ],
+      "zh": [
+        "{NPC_ENTER:crazydave}",
+        "{NPC_ENTER:winnie}",
+        "{EXCITED:winnie}"
+      ]
+    },
+    {
+      "key": "NARRATIVE_OUT_OF_CONTENT_FUTURE_NEXT_5",
+      "en": [
+        "{SPECIAL16:crazydaveicon}"
+      ],
+      "zh": [
+        "{SPECIAL16:crazydave}"
+      ]
+    }
+  ],
+  "crlf_flattened_count": 0,
+  "crlf_flattened_sample": [],
+  "mixed_suspect_count_capped": 200,
+  "mixed_suspect_sample": [
+    {
+      "key": "AGE_GATE_LEGAL_EXTENSION",
+      "sample": "我同意如《保密和 Cookie 协议》中进一步解释的那样，把使用 EA 服务时收集到的所有个人数据转移至位于美国的 EA。"
+    },
+    {
+      "key": "AGEGATE_LEGAL_REVISION_PRIVACY_LINK_TITLE",
+      "sample": "《保密和 Cookie 协议》"
+    },
+    {
+      "key": "APP_UPDATE_REQUIRED",
+      "sample": "从App Store下载最新版本的《植物大战僵尸2》以继续。"
+    },
+    {
+      "key": "CREDITS_BRAND_MARKETING_DIRECTOR",
+      "sample": "PopCap 品牌营销布局"
+    },
+    {
+      "key": "CREDITS_COPYRIGHT",
+      "sample": "植物大战僵尸2 ©2021 电子艺界公司。植物大战僵尸、PopCap、EA 以及 EA 标志是电子艺界公司的商标。\r\n访问我们：www.POPCAP.COM\r\n支持：www.POPCAP.com/help.php"
+    },
+    {
+      "key": "CREDITS_DIRECTOR_OF_LICENSING",
+      "sample": "PopCap 商业许可指导"
+    },
+    {
+      "key": "CREDITS_PROGRAM_MANAGEMENT",
+      "sample": "PopCap.com 开发管理"
+    },
+    {
+      "key": "CREDITS_PVZ_TITLE",
+      "sample": "《植物大战僵尸™ 2》\r\n奇妙时光之旅\r\nPopCap、Electronic Arts 出品"
+    },
+    {
+      "key": "DAZEYCHAIN_DESCRIPTION_HEADER",
+      "sample": "Dazey Chains 会逐步成长，变得更加强大，并在每个阶段释放出一股停滞的气体。"
+    },
+    {
+      "key": "EMPOWERMINT_ARMAMINT_QUEST_DESC",
+      "sample": "带着一个提升吊球能力的 Arma-mint 旋转一圈，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_CONCEALMINT_QUEST_DESC",
+      "sample": "使用增强暗影效果的 Conceal-mint 进行旋转，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_CONTAINMINT_QUEST_DESC",
+      "sample": "使用加速减速的 Contain-mint 来旋转一下，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_ENFORCEMINT_LEVELUP_DESC",
+      "sample": "驾驶升级后的近战增强型 Enforce-mint 旋转一下，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_ENFORCEMINT_QUEST_DESC",
+      "sample": "驾驶近战增强型 Enforce-mint 旋转一下，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_ENLIGHTENMINT_QUEST_DESC",
+      "sample": "服用增强阳光的 Enlighten-mint 旋转一下，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_FILAMINT_LEVELUP_DESC",
+      "sample": "带着升级后的电动助力 Fila-mint 旋转一圈，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_FILAMINT_QUEST_DESC",
+      "sample": "拿着电动助力 Fila-mint 旋转一圈，边旋转边赚取奖励！"
+    },
+    {
+      "key": "EMPOWERMINT_REINFORCEMINT_QUEST_DESC",
+      "sample": "使用增强屏障的 Reinforce-mint 来旋转一下，并在旋转过程中获得奖励！"
+    },
+    {
+      "key": "EPIC_QUEST_FUTURE_NEW_DESC",
+      "sample": "游玩额外的困难关卡：遥远未来第 26-35 关，赢取不到一个 Googolplex 的宝石！"
+    },
+    {
+      "key": "FACEBOOK_FRIENDS_ALREADY_LOGGED_IN",
+      "sample": "一个档案登录了 Facebook"
+    },
+    {
+      "key": "FINISH_DARK_1_DESC",
+      "sample": "Cheap lil' 阳光菇发出不断增长的太阳光！容光焕发！完成黑暗时代第一天！"
+    },
+    {
+      "key": "FINISH_DARK_2_DESC",
+      "sample": "How about a quick little shooter that costs ZERO sun? 小喷菇是的！完成黑暗时代第二天！"
+    },
+    {
+      "key": "FINISH_DARK_20_DESC",
+      "sample": "Hamper the heinous 僵王博士 and earn your trophy in this tenth-century titlecard on 黑暗时代 Day 20!"
+    },
+    {
+      "key": "FINISH_DARK_6_DESC",
+      "sample": "What if zombies spat out sun as they took damage? 太阳豆让这一切发生！完成黑暗时代第6天！"
+    },
+    {
+      "key": "FINISH_DINO_1_DESC",
+      "sample": "原始豌豆射手s sling serious smack with heavy, stunning peas! 完成恐龙危机第一天！"
+    },
+    {
+      "key": "FINISH_DINO_16_DESC",
+      "sample": "Annihilate the antediluvian 巨人僵尸s of 恐龙危机 Day 16 to earn a shiny 现代世界 Key!"
+    },
+    {
+      "key": "FINISH_DINO_20_DESC",
+      "sample": "LA Brainsa 防水油布！ Face dinosaurs and prehistoric zombies in this bygone battle! 完成恐龙危机第20天！"
+    },
+    {
+      "key": "FINISH_DINO_23_DESC",
+      "sample": "Blast zombies with starchy goodness, courtesy of the 原始土豆地雷! 完成恐龙危机第23天！"
+    },
+    {
+      "key": "FINISH_DINO_32_DESC",
+      "sample": "Frustrate the feverish 僵王博士 and earn your trophy in the swampy strife of 恐龙危机, Day 32!"
+    },
+    {
+      "key": "FINISH_EGYPT_21_DESC",
+      "sample": "Starting Sun Boost：每个级别都有 25 颗额外的阳光来开始新的一天！完成神秘埃及第21天！"
+    },
+    {
+      "key": "FINISH_FUTURE_13_DESC",
+      "sample": "Infi-Nut 会随着时间的推移而再生，并用植物性食物阻挡所有行！惊人！完成未来世界第13天！"
+    },
+    {
+      "key": "FINISH_PIRATE_9_DESC",
+      "sample": "虚张声势让你陷入困境？使用 Spring Bean 将他们击回戴维·琼斯的储物柜！完成海盗港湾第9天！"
+    },
+    {
+      "key": "GAMECENTER_FAILED_DESCRIPTION",
+      "sample": "若想访问成就和排行榜，你必须在游戏外连接到 Game Center。"
+    },
+    {
+      "key": "GAMECENTER_FAILED_HEADER",
+      "sample": "未连接到 Game Center\n"
+    },
+    {
+      "key": "GOOGLE_PLAY_FAILED_DESCRIPTION",
+      "sample": "若想访问成就和排行榜，你必须连接到 Google Play。"
+    },
+    {
+      "key": "GOOGLE_PLAY_FAILED_HEADER",
+      "sample": "没有连接到 Google Play"
+    },
+    {
+      "key": "LIGHTNINGREED_DESCRIPTION",
+      "sample": "{FLAVOR}说出来可能会让你大吃一惊：闪电芦苇对主持业余电台拥有着无比的热情。他的呼号是：“3Dian 5Way”。你可以在每周二收听他给老植物诵读经典。本周的节目是：《种子与情感》。"
+    },
+    {
+      "key": "LINK_GAMECENTER",
+      "sample": "连接到 GAME CENTER"
+    },
+    {
+      "key": "LINK_GOOGLE_PLAY",
+      "sample": "连接到 GOOGLE PLAY"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_AF2024",
+      "sample": "时间终于到了。 PvZ2：返茂带来了期待已久的与植物大战僵尸3的合作！与你的 PvZ 好友一起重建 Neighborville - 但要小心，这次合作是有限时间的！最好准备好你的 Taco 门票！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_ALTVERZ",
+      "sample": "出了点问题，戴夫和朋朋最终陷入了平行宇宙！对抗新的僵尸威胁和机制，将戴夫和朋朋带回我们的宇宙！快点，因为 Thymed 活动只持续有限的时间！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_BIGBRAINZ",
+      "sample": "醒醒，上学时间到了！ Big Brainz 现已推出新关卡和大量返校好礼！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_BIRTHDAYZ",
+      "sample": "PvZ第13届生日趴狂欢现已开始，邀请大家！一路上赚取礼物并与所有你最喜欢的僵尸朋友一起庆祝！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_BIRTHDAYZ_2023",
+      "sample": "PvZ第14届生日趴狂欢现已开始，邀请大家！遇到熟悉的僵尸敌人并获得基于原版植物大战僵尸的新服装！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_BIRTHDAYZ_2024",
+      "sample": "植物大战僵尸15周年快乐！与僵王博士一起回顾记忆之旅：特别主题服装正在等待着您！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_BIRTHDAYZ_2025",
+      "sample": "植物大战僵尸16周年快乐！帮助僵王博士布置今年的庆祝活动：特殊主题服装正在等待！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_BIRTHDAYZ_2026",
+      "sample": "植物大战僵尸17周年快乐！了解社交媒体上的最新动态：特殊主题服装正在等待！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_CARNIVAL",
+      "sample": "那是踩高跷的僵尸吗？！体验我们全新的 Backyard Big Top 体验！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_CHILDRENS",
+      "sample": "唤醒你内心的童真，因为儿童节到了！拿起一些糖果，享受新关卡并获得美味奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_FOODFIGHT",
+      "sample": "有人说食物大战吗？！玩一些新关卡即可赚取金币和其他好东西！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_HALLOWEEN",
+      "sample": "嘘！我们吓到你了吗？ 《末日草坪》现已推出，提供诡异的新关卡和恐怖的史诗奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_HARVEST",
+      "sample": "丰收节期间种瓜得瓜，种豆得豆！加入我们的庆祝活动，享受新鲜的新关卡和丰厚奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_HEROES",
+      "sample": "准备好，英雄们！一年一度的英雄大会到了！遇见（并击败）你的英雄以获得一些超级奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_LAWNBOWL",
+      "sample": "植物喜欢运动 - 僵尸也喜欢！在我们一年一度的后院脑力碗赛中帮助击败僵尸队！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_LOTZ",
+      "sample": "今天是你的幸运日，因为僵尸好运来了！在所有新关卡中测试您的运气并获得丰厚奖励！请记住在紧要关头玩，因为 Thymed 活动仅在有限的时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_LUNARNEWYEAR",
+      "sample": "祝您财源广进！参加我们的月球动物园年活动以获得新关卡和丰厚奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_SPRINGENING",
+      "sample": "兔子僵尸和鸡蛋？！一定是春暖花开！打败僵尸并保存鸡蛋以获得奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_SUMMERNIGHTS",
+      "sample": "热度高，丧尸几率更高！在这个有限的 Thymed 活动中完成 10 个夏季主题乐趣的关卡！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_VALENBRAINZ",
+      "sample": "Valenbrainz 就在空气中弥漫着爱的气息！畅玩由我们最优秀的猴子精心设计的新关卡，赢取让你的爱人惊叹不已的奖励！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_DESC_ZCORP",
+      "sample": "僵企向所有人带来了他们全新的外展计划，这引起了真正的骚动！阻止他们的非法广告并拯救世界！ Thymed 活动仅在有限时间内有效！"
+    },
+    {
+      "key": "LTE_EVENTS_INFO_AF2024",
+      "sample": "玩 N3xt G3n 协作以获得特殊奖励 - 包括服装！正在努力获得那些 Taco 门票吗？使用樱桃炸弹 Boost！在时间耗尽之前体验合作！这是真正的下一代体验！"
+    },
+    {
+      "key": "LTE_EVENTS_INFO_SPONGEBOB",
+      "sample": "玩 Spoongebob Age 以获得独家 PeaBob SquareShooter 服装。海绵宝宝的海底冒险是有时间限制的，时间用完后就无法玩了，所以要抓紧时间！！！"
+    },
+    {
+      "key": "LTE_LEVEL_NAME_BIGBRAINZ",
+      "sample": "Big Brainz - 等级{LEVEL_NUMBER}"
+    },
+    {
+      "key": "LTE_LEVEL_NAME_BIRTHDAYZ_2026_ALT",
+      "sample": "King-a-versary - 等级{LEVEL_NUMBER}"
+    },
+    {
+      "key": "LTE_LEVEL_NAME_HEROES",
+      "sample": "Hero-Con 2025 - 级别{LEVEL_NUMBER}"
+    },
+    {
+      "key": "LTE_LEVEL_NAME_HEROES_2023",
+      "sample": "Hero-Con 2023 - 级别{LEVEL_NUMBER}"
+    },
+    {
+      "key": "LTE_LEVEL_NAME_HEROES_2024",
+      "sample": "Hero-Con 2024 - 级别{LEVEL_NUMBER}"
+    },
+    {
+      "key": "MULTIPLE_CHALLENGE_CONNECTOR",
+      "sample": "{CHALLENGE_ONE}^C8C8C8和^oldclr{CHALLENGE_TWO}"
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_5_INTRO_6",
+      "sample": "{SAY:zombossicon}It is I, the great Dr. Edgar G. 僵王!"
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_5_INTRO_7",
+      "sample": "{SAY:zombossicon}However, not the 僵王 that you would probably expect!"
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_5_INTRO_8",
+      "sample": "{SAY:zombossicon}I am the only 僵王 which matters."
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_5_INTRO_21",
+      "sample": "{SAY:zombossicon}All with the bottom line: May the better 僵王 win!"
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_5_INTRO_24",
+      "sample": "{SAY:zombossicon}...I shall forever prove that I am, in fact, the superior 僵王!"
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_6_INTRO_3",
+      "sample": "{SAY:winnie}Perhaps to further his \"game\" with our own 僵王."
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_15_OUTRO_2",
+      "sample": "{SAY:crazydave}Ooooooh，有人在学习。"
+    },
+    {
+      "key": "NARRATIVE_LTE_2023_04_ALTVERZ_15_OUTRO_13",
+      "sample": "{SHOUT:crazydave}还是DOOOOO THEEEEEEY？"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_1_INTRO_2",
+      "sample": "{SAY:winnie}我们似乎已经到达Bikini Bottom了。"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_6_INTRO_10",
+      "sample": "{TIRED:crazydave}你必须uuuuuh.....uuuuuhhhh..."
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_8_INTRO_2",
+      "sample": "{SAY:jimcarreyz}你有麻烦了。 Biiiiig trouble. 事实上，这是一个巨大的麻烦！"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_8_INTRO_4",
+      "sample": "{SAY:jimcarreyz}Gargantur 带来了小鬼僵尸s 史前瘟疫！"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_8_INTRO_6",
+      "sample": "{SAY:jimcarreyz}哦，我正在与 plakton 合作。"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_9_INTRO_10",
+      "sample": "{EXCITED:plankton}grrrrrrr 我正在派遣我的军队攻击你！"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_12_INTRO_1",
+      "sample": "{NPC_ENTER:pennybbt}{SHOUT:pennybbt}BAZINGA！！！ 《生活大爆炸》现在晚上 8 点仅在卡通频道首播！"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_12_INTRO_4",
+      "sample": "{SHOUT:pennybbt}BAZINGA！！！ 《生活大爆炸》现在晚上 8 点仅在卡通频道首播！"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_15_INTRO_6",
+      "sample": "{NPC_EXIT:pennycoin}{NPC_ENTER:spongebob}{SAY:spongebob}这个商场太棒了eeeeeeeeee！"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_19_INTRO_3",
+      "sample": "{EXCITED:crazydave}伊玛目 osjećaj da će ovo biti najbolji dan ikada。"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_21_INTRO_1",
+      "sample": "{NPC_ENTER:crazydave}{SAY:crazydave}<缺失的叙述_SPONGEBOB_21_INTRO_1>"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_21_INTRO_2",
+      "sample": "{PLAYFUL:crazydave}<缺失的叙述_SPONGEBOB_21_INTRO_2>"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_21_INTRO_3",
+      "sample": "{TIRED:crazydave}<缺失的叙述_SPONGEBOB_21_INTRO_3>"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_21_INTRO_4",
+      "sample": "{EXCITED:crazydave}<缺失的叙述_SPONGEBOB_21_INTRO_4>"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_21_INTRO_5",
+      "sample": "{SPECIAL2:crazydave}<缺失的叙述_SPONGEBOB_21_INTRO_5>"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_23_INTRO_9",
+      "sample": "{SAY:winnie}Dazey Chain：太阳成本 300 -> 2030。"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_24_INTRO_3",
+      "sample": "{PLAYFUL:plankton}这些 Z-OMBIES 计划会摧毁你并获得配方。"
+    },
+    {
+      "key": "NARRATIVE_SPONGEBOB_24_INTRO_5",
+      "sample": "{SHOUT:plankton}Plankton 的提示：使用冰西瓜 Pult。尽管削弱了它还是会融化我的部落。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_2_INTRO_6",
+      "sample": "{SAY:pvz3crazydave}嗯嗯...我敢打赌一些*bibbly cobblicoot*小发明..."
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_2_INTRO_8",
+      "sample": "{EXCITED:pvz3crazydave}...我们可以阻挡成群的人群并阻止*gobarghle*烟雾！"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_8_INTRO_1",
+      "sample": "{NPC_ENTER:patrice}{SAY:patrice}Power Ups 可以帮助我们击败讨厌的僵王博士！"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_8_INTRO_3",
+      "sample": "{NPC_ENTER:pvz3crazydave}{SHOUT:pvz3crazydave}Frapalulu 想法，帕特里斯！那些僵尸不知道是什么袭击了他们！"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_8_INTRO_6",
+      "sample": "{MEDIUM:pvz3crazydave}Neighborville 里有更多僵尸？！"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_11_INTRO_14",
+      "sample": "{SAY:walterwhite}我开始BREAK BAD..."
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_12_INTRO_13",
+      "sample": "{TIRED:gustavo}Ermantraut先生，你能检查一下我们的鸡肉供应吗？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_15_INTRO_1",
+      "sample": "{NPC_ENTER:markiplier}{SAY:markiplier}大家好，我的名字是 Markiplier，欢迎来到玩具熊的五夜后宫"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_15_INTRO_3",
+      "sample": "{NPC_ENTER:crazydave}{NPC_ENTER:winnie}{PLAYFUL:crazydave}我是 Dave，我猜你是 Markiplier。现在就叫你Marki吧。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_15_INTRO_19",
+      "sample": "{NPC_EXIT:crazydave}{NPC_ENTER:markiplier}{SHOUT:markiplier}紫色GUUUUUUY？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_15_INTRO_23",
+      "sample": "{SHOUT:crazydave}他和我一样CRAAAAAAZYYY，而且名字也一样，所以我们相处得很好。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_16_INTRO_2",
+      "sample": "{SHOUT:crazydave}Quinyard 你为什么要这样做？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_16_INTRO_7",
+      "sample": "{SAY:squidward}Schmblmblmb...表明您对好角色的欣赏程度。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_16_INTRO_8",
+      "sample": "{SHOUT:spongebob}对不起Squiddy...也许只是没有足够的空间给你..."
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_18_INTRO_5",
+      "sample": "{SAY:matpat}我是Matpat，我在这个世界生活了9年多了"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_19_INTRO_9",
+      "sample": "{NPC_ENTER:epicface}{SHORT:douglas}＼(^ V ^)／ OMG HIIIIII 超棒的最爱＼(*'v'*)/"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_19_INTRO_13",
+      "sample": "{SHORT:epicface}Sun Pod 与豌豆荚具有相似的属性。你每储存 500 个太阳，它就会长出一个头。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_22_INTRO_1",
+      "sample": "{NPC_ENTER:squidward}{SAY:squidward}sudah selesai，海绵鲍勃"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_22_INTRO_14",
+      "sample": "{SAY:spongebob}笑话源自：Octanracer 和 RoboJellyTrek"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_22_INTRO_16",
+      "sample": "{SAY:squidward}kenapa anak tk tidak boleh menonton 电影 bajak laut"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_23_INTRO_7",
+      "sample": "{SHOUT:spongebob}今天肯定不会遇到THE SNIFFER[tm]"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_23_INTRO_15",
+      "sample": "{NPC_EXIT:planktontornado}{NPC_ENTER:pennybbt}{SHOUT:pennybbt}Big Bang Yee 第一季未能进入前 50 名（第 68 名）"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_23_INTRO_19",
+      "sample": "{SHOUT:pennybbt}2010-2011年，他主演了Black and Fox的NBC喜剧《美国偶像》（以及很长一段时间的《权力的游戏》），"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_23_INTRO_25",
+      "sample": "{NPC_ENTER:epicface}{SHORT:epicface}Tree Zombies 2 价格比较：Ray Flora 十三岁了。游戏有 32 个关卡和许多地点。度假屋 - 稍后回来"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_25_INTRO_2",
+      "sample": "{NPC_EXIT:winnie}{NPC_ENTER:pennycoin}{SAY:pennycoin}我们似乎已经到达Bikini Bottom了。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_25_INTRO_22",
+      "sample": "{NPC_EXIT:squidwardevil}{NPC_EXIT:zomboss}{NPC_EXIT:zombossicon}{NPC_ENTER:crazydave}{SHOUT:crazydave}这是<placeholdername_april_frut_event_24>的剧情吗？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_26_INTRO_11",
+      "sample": "{NPC_EXIT:peso}{NPC_ENTER:sandy}{SAY:sandy}听说过比特币、squidwid吗？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_26_INTRO_13",
+      "sample": "{NPC_ENTER:patrick}{SHOUT:patrick}你应该投资以太坊，skindward"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_26_INTRO_14",
+      "sample": "{SHOUT:spongebob}squiddy...我知道你无法抗拒,..,.,.., mnhgmgmhmgnmghgmmmnnghn"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_26_INTRO_18",
+      "sample": "{SAY:patrick}哎呀！抱歉，Squoinkwap，这就是为什么你在和我对视之前先看看两边！"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_26_INTRO_25",
+      "sample": "{TIRED:squidward}我不在乎 Walter Hartwell White 308 Negra Arroyo Lane 新墨西哥州阿尔伯克基"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_26_INTRO_27",
+      "sample": "{NPC_ENTER:jimcarreyz}{SAY:squidward}我招募了三大队的朋友zomboss来帮助我实施我的最新计划。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_27_INTRO_10",
+      "sample": "{NPC_ENTER:spongebob}{SHOUT:spongebob}呃，squeendard，我们都知道你是谁。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_27_INTRO_21",
+      "sample": "{SAY:douglas}我喜欢这个flairon。真的很好，我在 1.2 中经常使用它，因为嘿，寻的射弹很有趣"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_27_INTRO_26",
+      "sample": "{SAY:douglas}我知道 zenith 是在 1.4 中添加的，是的，它做了同样的事情，但更好，但是 ew"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_27_INTRO_36",
+      "sample": "{SAY:douglas}别告诉 kiro，但他在我的 dms 中喵喵叫的次数比在他的所以 L"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_28_INTRO_4",
+      "sample": "{TIRED:crazydave}Sqindgewiddle 死了... *抽泣*"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_28_INTRO_20",
+      "sample": "{SHOUT:walterwhite}我看着squindleweird死掉。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_134",
+      "sample": "{SAY:douglas}像pookie doookie一样无聊。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_137",
+      "sample": "{SAY:douglas}显然，这家伙的名字叫“Zombillion”什么的。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_139",
+      "sample": "{SAY:douglas}不过话又说回来，他给Zombert起名为“Zombert”。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_146",
+      "sample": "{SAY:douglas}...Zomddit 经常提到它们..."
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_150",
+      "sample": "{SAY:douglas}要知道，zomboss的队伍里还有很多“小偷”……"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_154",
+      "sample": "{SAY:missinfo}SquarePants 专营权。[4] 他是一只浮游桡足类动物，经营着 Chum Bucket 餐厅"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_155",
+      "sample": "{SAY:missinfo}和凯伦在一起，她是一台防水电脑，是他的助手和妻子。 Chum Bucket 在以下地区不受欢迎"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_167",
+      "sample": "{SAY:missinfo}正如专家“Pickle Minkle”Zomtube分析内容创建者所评论的，这也是游戏中最糟糕的世界。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_168",
+      "sample": "{SAY:missinfo}当他们推出“Clapper”僵尸类型时，世界真的一落千丈。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_169",
+      "sample": "{SAY:missinfo}您可以在以下链接找到完整的分析视频“为什么失落之城 Clapper很烂，我讨厌它”（11分20秒）："
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_217",
+      "sample": "{SAY:missinfo}生活大爆炸是一部美国电视情景喜剧，由 Chuck Lorre 和 Bill Prady 为 CBS 创作。该剧于2007年9月24日至2019年5月16日播出，共播出12季279集。[3]"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_223",
+      "sample": "{SAY:missinfo}和天体物理学家 Raj Koothrappali (Kunal Nayyar)。[4][5] 随着时间的推移，配角晋升为主角，"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_280",
+      "sample": "{SAY:missinfo}它基于电子游戏《杀出重围：人类革命》中的 Diamond Back .357；"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_320",
+      "sample": "{NPC_EXIT:missinfo}{SAY:douglas}等等，这实际上是个好主意，但是看看这个Pomni-pult。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_322",
+      "sample": "{NPC_EXIT:missinfo}{SAY:douglas}是啊，僵尸根本没有机会，但你看这个，是Wolfy，Hunterria的狼。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_359",
+      "sample": "{SAY:douglas}你知道《植物大战僵尸1》的作曲家Laura Shigihara也创作了神秘埃及的主题曲吗？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_365",
+      "sample": "{SAY:douglas}巴松管、吹瓶、!Xpand2 FM Bellish。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_379",
+      "sample": "{SAY:douglas}就像当你使用imppear的植物性食物时，你会听到所有的放屁音效重叠。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_380",
+      "sample": "{NPC_ENTER:missinfo}{SAY:missinfo}Gooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_408",
+      "sample": "{NPC_ENTER:missinfo}{SAY:missinfo}Gooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_436",
+      "sample": "{NPC_ENTER:missinfo}{SAY:missinfo}Gooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_479",
+      "sample": "{SAY:douglas}你听说过Hammeruit吗？"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_480",
+      "sample": "{NPC_ENTER:missinfo}{SAY:missinfo}Hammeruit 是植物大战僵尸 2 中的一种植物，在 12.0.1 更新中引入。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_483",
+      "sample": "{SAY:missinfo}Hammeruit 似乎是基于锤兰花，锤兰花是 Drakaea 属 10 种兰花中的任何一种。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_489",
+      "sample": "{SAY:missinfo}当受到 Enforce-mint 的强化时，Hammeruit 将造成额外 50 点伤害（每级增加 20 点伤害）"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_495",
+      "sample": "{SAY:}MissInfo:1 50 0 200 10 秒 8 秒 400 伤害 150 伤害 500 伤害"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_498",
+      "sample": "{SAY:missinfo}99 999 62 2228 0 秒 0.02 秒 3.14 伤害 googolplex * 2^(136,279,841) 伤害 597 伤害"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_579",
+      "sample": "{SAY:}Douglas 我敢打赌，“卡里吉斯”狂欢节也只是使用了另一种蹦床噱头。"
+    },
+    {
+      "key": "NARRATIVE_N3XTUNIVERSE_31_INTRO_580",
+      "sample": "{SAY:douglas}哦，让我猜一下。它们在这里被称为“trampolimps”。"
+    },
+    {
+      "key": "NARRATIVE_BEACH_ZOMBIENOTE_2",
+      "sample": "{NPC_ENTER:winnieicon}{EXCITED:winnieicon}是 BINGO，用户戴夫。BINGO。"
+    },
+    {
+      "key": "NARRATIVE_EIGHTIES_32_INTRO_1",
+      "sample": "{NPC_ENTER:zombossicon}{SAY:zombossicon}现在听我唱：\r\n♫You're in danger above. You're a fool; and so knew I!♫\r\n（你遇上大事了。你是个笨蛋，我早已清楚明白！）"
+    },
+    {
+      "key": "NARRATIVE_EIGHTIES_32_INTRO_2",
+      "sample": "{SAY:zombossicon}♫Ever shall you give up; ever shall you be down; always you'll run aground, I'll revert you.♫\r\n（永远要将你放弃；永远要让你伤心；永远要把你抛弃，要伤害你。）"
+    },
+    {
+      "key": "NARRATIVE_EIGHTIES_32_INTRO_3",
+      "sample": "{SAY:zombossicon}♫I intend to make you cry; I mean for you to say goodbye; I'm not really that nice a guy - I alert you!♫\r\n（我想让你哭；想和你告别；我不是个好人——我警告你！）"
+    },
+    {
+      "key": "NARRATIVE_RIFT_UNLOCK_1",
+      "sample": "{NPC_ENTER:winnieicon}{SAY}您可以随时通过点击 Thymed 活动的图标返回该活动！"
+    },
+    {
+      "key": "NARRATIVE_STRAWBURST_LOD_2",
+      "sample": "{SAY:winnie}Strawburst 的浆果会随着时间的推移而生长。"
+    },
+    {
+      "key": "NETWORK_ISSUE_DESCRIPTION_CLOUDCONNECTION_ANDROID",
+      "sample": "我们无法验证你的云端连接。请检查你是否登入了 Google Play 游戏服务，以保护进度并在不同设备上维护进度。"
+    },
+    {
+      "key": "NETWORK_ISSUE_DESCRIPTION_CLOUDCONNECTION_IOS",
+      "sample": "我们无法验证你的云端连接。请检查你是否登入了 iCloud，以保护进度并在不同设备上维护进度。"
+    },
+    {
+      "key": "OFFLINE_FACEBOOK_LOGIN_BODY",
+      "sample": "请连接到网络以登入 Facebook。"
+    },
+    {
+      "key": "POPCAP_GAMES_PRESENTS",
+      "sample": "PopCap Games 出品"
+    },
+    {
+      "key": "product_bundle_imppear_consume_g25",
+      "sample": "10 小鬼僵尸梨子包 + 10 个 Ail-mint Family 种子包！每天限1次"
+    },
+    {
+      "key": "product_costume_jackolantern_birthdayz_countjackula_nonconsume_g1",
+      "sample": "杰克南瓜灯 Count Jackula 装扮"
+    },
+    {
+      "key": "product_flashsnowpea_name",
+      "sample": "Android 捆绑包 - 闪光雪花豌豆"
+    },
+    {
+      "key": "product_google_torchwood",
+      "sample": "在 Google Play 年末大促中以 75 折的价格把火炬树桩带回家取暖吧！"
+    },
+    {
+      "key": "product_pinata_silver_egypt_consume_g100_s",
+      "sample": "Ancient Egypt - 220 种子包"
+    },
+    {
+      "key": "product_pinata_silver_egypt_consume_g20_s",
+      "sample": "Ancient Egypt - 40 种子包"
+    },
+    {
+      "key": "product_pinata_wood_egypt_consume_g100_s",
+      "sample": "Ancient Egypt - 140 种子包"
+    },
+    {
+      "key": "product_pinata_wood_egypt_consume_g20_s",
+      "sample": "Ancient Egypt - 24 种子包"
+    },
+    {
+      "key": "PROGRESSIVE_REGISTRATION_LINK_PERSONAL_INFO",
+      "sample": "查看我们的《保密和 Cookie 协议》"
+    },
+    {
+      "key": "PROMPT_FOR_APP_TRACKING_DISABLED_BODY",
+      "sample": "要启用此设置并接收与你兴趣相关的第三方广告，请在 Apple iOS 设置中启用跟踪。"
+    },
+    {
+      "key": "PROMPT_FOR_TARGETED_ADS",
+      "sample": "我们依赖第三方合作商的服务来为你在游戏内推送定制化广告。\r\n如果禁用此选项，你仍然会看到此类第三方广告，但可能会不再与你有密切关联。你可以在隐私设置中修改你的偏好。更多细节详见《EA 保密和 Cookie 协议》。"
+    },
+    {
+      "key": "PURCHASE_COINS_IN_APP_STORE",
+      "sample": "想去 App Store 购买更多硬币吗？"
+    },
+    {
+      "key": "PURCHASE_CONFIRMED_HEADER",
+      "sample": "App Store 购买"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLVIII",
+      "sample": "特殊捆绑包 CLVIII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXIII",
+      "sample": "特殊捆绑包 CLXIII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXVII",
+      "sample": "特殊捆绑包 CLXVII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXVIII",
+      "sample": "特殊捆绑包 CLXVIII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXII",
+      "sample": "特殊捆绑包 CLXXII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXIII",
+      "sample": "特殊捆绑包 CLXXIII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXIV",
+      "sample": "特殊捆绑包 CLXXIV"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXIX",
+      "sample": "特殊捆绑包 CLXXIX"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXVI",
+      "sample": "特殊捆绑包 CLXXVI"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXVII",
+      "sample": "特殊捆绑包 CLXXVII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXVIII",
+      "sample": "特殊捆绑包 CLXXVIII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXXI",
+      "sample": "特殊捆绑包 CLXXXI"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXXII",
+      "sample": "特殊捆绑包 CLXXXII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXXIII",
+      "sample": "特殊捆绑包 CLXXXIII"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXXIV",
+      "sample": "特殊捆绑包 CLXXXIV"
+    },
+    {
+      "key": "PVZ2_MTX_SPECIAL_CLXXXIX",
+      "sample": "特殊捆绑包 CLXXXIX"
+    }
+  ]
+}
