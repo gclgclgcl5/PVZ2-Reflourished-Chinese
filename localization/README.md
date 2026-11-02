@@ -36,10 +36,12 @@
 
 | 路径 | 说明 |
 |------|------|
-| `scripts/` | **现行**工具：提取、合并参考译、回封、图鉴属性、CDN/字体补丁 |
+| `scripts/` | **现行**工具：提取、合并参考译、回封、图鉴属性、CDN/字体、`apply_community_names` |
 | `export_for_ai/` | 分批审校用英文/译文（人工或外部 AI）；回导用 `import_ai_translations.py` |
+| `参考翻译/` `参考翻译2/` | 社区参考译文 |
 | `archive/machine_translation/` | **已停用**机翻脚本与备份 |
 | `archive/early_reports/` | 早期合并报告等 |
+| `archive/one_shot_renames/` | Wiki 审计 / 旧用词统一等一次性脚本 |
 | `汉化教程.md` | 完整操作文档 |
 
 成品示例见仓库根目录 `release_zh/`。

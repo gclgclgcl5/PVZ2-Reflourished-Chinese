@@ -41,3 +41,8 @@ apk-inspect.json
 /localization/export_for_ai/.mt_cache.jsonl
 /localization/export_for_ai/*.zh.json.bak
 /localization/参考翻译/raw/
+
+# allinone bootstrap build junk
+/localization/allinone_bootstrap/lib/
+/localization/allinone_bootstrap/out/
+/localization/allinone_bootstrap/*.jar
