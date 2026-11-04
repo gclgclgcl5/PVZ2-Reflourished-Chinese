@@ -3,6 +3,8 @@
 
 Each input file must be a JSON object: { \"KEY\": \"中文\" }.
 Unknown keys are reported; empty values are skipped.
+Keys listed in export_for_ai/almanac/almanac_name_lock.json (plant/zombie
+short names) are never overwritten.
 
 Usage:
   python import_ai_translations.py path/to/batch_001.zh.json [more.json ...]
@@ -19,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EN_PATH = ROOT / "LawnStrings_en.json"
 ZH_PATH = ROOT / "LawnStrings_zh.json"
 PROGRESS_PATH = ROOT / "progress.json"
+NAME_LOCK_PATH = ROOT / "export_for_ai" / "almanac" / "almanac_name_lock.json"
 
 
 def looks_chinese(s: str) -> bool:
@@ -106,14 +109,24 @@ def main() -> None:
 
     en = json.loads(EN_PATH.read_text(encoding="utf-8"))
     zh = json.loads(ZH_PATH.read_text(encoding="utf-8"))
+    name_lock: dict[str, str] = {}
+    if NAME_LOCK_PATH.is_file():
+        raw = json.loads(NAME_LOCK_PATH.read_text(encoding="utf-8"))
+        if isinstance(raw, dict):
+            name_lock = {k: v for k, v in raw.items() if isinstance(k, str) and isinstance(v, str)}
 
     applied = 0
     skipped_unknown = 0
     skipped_same = 0
+    skipped_name_lock = 0
     for path in uniq:
         obj = load_obj(path)
         local_apply = 0
         for k, v in obj.items():
+            if k in name_lock:
+                # Plant/zombie short names are frozen; never overwrite from AI batches
+                skipped_name_lock += 1
+                continue
             if k not in en:
                 skipped_unknown += 1
                 continue
@@ -134,6 +147,7 @@ def main() -> None:
         f"  newly applied this run: {applied}\n"
         f"  unknown keys skipped: {skipped_unknown}\n"
         f"  identical-to-en skipped: {skipped_same}\n"
+        f"  name-lock short names skipped: {skipped_name_lock}\n"
         f"  progress: {prog['changed_from_english']}/{prog['total_keys']} "
         f"({prog['pct_changed']}%), remaining {prog['remaining_english']}"
     )

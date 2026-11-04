@@ -217,6 +217,25 @@ def merge_fallback(primary: Path, fallback: Path, text: str, dest: Path) -> None
     subset_font(fallback, text, dest)
 
 
+def build_ui_full(text: str) -> None:
+    """Subset stock UI face to full LawnStrings charset (for --full-coverage)."""
+    src = OUT / "_ui_stock.ttf"
+    if not src.exists():
+        # fall back to uncompressed stock extract or previous full
+        for cand in (OUT / "_ui_raw.ttf", OUT / "fbUsv8C5eI.ttf"):
+            if cand.exists() and cand.stat().st_size > 1_000_000:
+                src = cand
+                break
+    if not src.exists():
+        raise SystemExit("missing fonts_cjk/_ui_stock.ttf for UI full subset")
+    dest = OUT / "fbUsv8C5eI_full.ttf"
+    print(f"build UI full from {src.name}")
+    subset_font(src, text, dest)
+    # Keep game-facing family; stock UI uses an opaque PostScript-ish id.
+    set_family_name(dest, "fbUsv8C5eI")
+    print(f"  -> {dest} ({dest.stat().st_size})")
+
+
 def main() -> None:
     import argparse
 
@@ -229,8 +248,14 @@ def main() -> None:
         default=None,
         help="only top-N CJK by frequency (+ ASCII/punct); recommended ~300-500 for Scheme A",
     )
+    ap.add_argument(
+        "--skip-download",
+        action="store_true",
+        help="use existing localization/fonts_src caches",
+    )
     args = ap.parse_args()
-    download_all()
+    if not args.skip_download:
+        download_all()
     text = charset_from_lawn(args.compact)
     print(f"charset size {len(text)} compact={args.compact}")
     OUT.mkdir(parents=True, exist_ok=True)
@@ -251,6 +276,7 @@ def main() -> None:
             subset_font(src, text, dest)
         set_family_name(dest, face_name)
         print(f"  -> {dest} ({dest.stat().st_size})")
+    build_ui_full(text)
     print("done")
 
 

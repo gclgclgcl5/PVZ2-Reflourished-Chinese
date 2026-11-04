@@ -50,7 +50,7 @@
 
 1. 只改 **`LawnStrings_zh.json`**（或改 `export_for_ai/*.zh.json` 后 `import_ai_translations.py`）  
 2. Sen：decode/encode（Sen 格式 `LocStringValues`）→ `LawnStrings_zh.rton`  
-3. `repack_obb_packages`；若动了属性字面量再跑 `patch_packages_almanac_literals.py --stat-refs`（§5.1.1）  
+3. `repack_obb_packages`；若动了属性字面量再跑 `patch_packages_almanac_literals.py --stat-refs`（§5.1.1）；若关卡目标正文仍英文再跑 `patch_packages_objective_literals.py`（§5.1.2）  
 4. 推 OBB + **同步 CDN** → `force-stop` 验收  
 
 **已停用**（调用会直接退出）：`apply_translation.py`、`run_full_translate.py`、`translate_batches.py`。

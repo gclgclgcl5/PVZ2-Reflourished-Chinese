@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LawnStrings 随机审阅</title>
+  <style>
+    :root {
+      --bg: #12151a;
+      --panel: #1b2129;
+      --line: #2c3540;
+      --text: #e8eef5;
+      --muted: #93a0ae;
+      --accent: #6db3f2;
+      --ok: #7dcea0;
+      --warn: #e6b35a;
+      --card: #222a33;
+      --en: #a8c0d8;
+      --zh: #f0e6d2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(18, 21, 26, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+      padding: 14px 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      font-weight: 650;
+    }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    button, label.file-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+    button.primary {
+      background: #2a4d6e;
+      border-color: #3c6f9b;
+    }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    button:hover:not(:disabled), label.file-btn:hover { border-color: var(--accent); }
+    input[type="file"] { display: none; }
+    main { max-width: 980px; margin: 0 auto; padding: 16px 18px 48px; }
+    .stats {
+      display: flex; flex-wrap: wrap; gap: 12px 18px;
+      margin: 10px 0 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .stats b { color: var(--text); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 8px 12px;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #314253;
+      color: #cfe4f8;
+      font-size: 0.75rem;
+    }
+    .key {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      color: var(--accent);
+      word-break: break-all;
+    }
+    .pair { display: grid; gap: 8px; }
+    .lang {
+      border-left: 3px solid var(--line);
+      padding: 6px 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      border-radius: 0 8px 8px 0;
+      background: #1a2027;
+    }
+    .lang.en { border-left-color: #5b86a8; color: var(--en); }
+    .lang.zh { border-left-color: #c9a66b; color: var(--zh); }
+    .label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+      letter-spacing: 0.04em;
+    }
+    .empty {
+      text-align: center;
+      padding: 48px 16px;
+      color: var(--muted);
+    }
+    .cats {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 8px;
+    }
+    .cats span {
+      font-size: 0.75rem;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #2a323c;
+      color: #b7c4d2;
+    }
+    footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LawnStrings 中英随机审阅</h1>
+    <div class="row">
+      <label class="file-btn">导入 EN JSON<input id="enFile" type="file" accept=".json,application/json" /></label>
+      <label class="file-btn">导入 ZH JSON<input id="zhFile" type="file" accept=".json,application/json" /></label>
+      <button id="tryLocal" type="button">尝试同目录自动加载</button>
+      <button id="nextBatch" class="primary" type="button" disabled>下一批（10 条）</button>
+      <button id="resetSeen" type="button" disabled>清空已见记录</button>
+    </div>
+    <div class="stats">
+      <span>共同键：<b id="statCommon">—</b></span>
+      <span>可抽：<b id="statPool">—</b></span>
+      <span>已见：<b id="statSeen">—</b></span>
+      <span>Pass旧LTE：<b id="statPassLte">—</b></span>
+      <span>本批品类：<b id="statCats">—</b></span>
+      <span id="status" class="muted">请导入 LawnStrings_en.json 与 LawnStrings_zh.json</span>
+    </div>
+  </header>
+
+  <main>
+    <div id="list" class="empty">尚未抽样。导入双文件后点「下一批」。</div>
+    <footer>
+      抽样会尽量覆盖不同品类（图鉴 / 剧情 / UI / 史诗任务 / 装扮商店等）。无 <code>LTE_REPLAY_*</code> 对应的往届限时活动（旧 LTE 对白/年份关卡名）自动 Pass，不进抽查池。已见键写入本机 localStorage；点「清空已见记录」可重来。范围说明见 <code>export_for_ai/lte_qa_scope.md</code>。
+    </footer>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "lawnstrings_qa_seen_v2";
+
+    /** @type {Record<string,string>|null} */
+    let enMap = null;
+    /** @type {Record<string,string>|null} */
+    let zhMap = null;
+    /** @type {string[]} */
+    let poolKeys = [];
+    /** @type {Set<string>} */
+    let seen = loadSeen();
+    let passLteCount = 0;
+
+    const el = {
+      enFile: document.getElementById("enFile"),
+      zhFile: document.getElementById("zhFile"),
+      tryLocal: document.getElementById("tryLocal"),
+      nextBatch: document.getElementById("nextBatch"),
+      resetSeen: document.getElementById("resetSeen"),
+      list: document.getElementById("list"),
+      status: document.getElementById("status"),
+      statCommon: document.getElementById("statCommon"),
+      statPool: document.getElementById("statPool"),
+      statSeen: document.getElementById("statSeen"),
+      statPassLte: document.getElementById("statPassLte"),
+      statCats: document.getElementById("statCats"),
+    };
+
+    /** @returns {Set<string>} family|year e.g. HEROES|2024 */
+    function buildLteReplayAllow(en) {
+      const allow = new Set();
+      const re = /^LTE_REPLAY_([A-Z0-9]+)_(\d{2})_DESC$/;
+      for (const k of Object.keys(en)) {
+        const m = k.match(re);
+        if (!m) continue;
+        allow.add(`${m[1]}|${2000 + parseInt(m[2], 10)}`);
+      }
+      return allow;
+    }
+
+    /** 无 REPLAY 条目的往届 LTE → Pass（不进优化/抽查池） */
+    function isLegacyLteOutOfScope(key, allow) {
+      let m = key.match(/^NARRATIVE_LTE_(\d{4})_\d{2}_([A-Z0-9]+)_/);
+      if (m) return !allow.has(`${m[2]}|${m[1]}`);
+      m = key.match(/^LTE_LEVEL_NAME_([A-Z0-9]+)_(\d{4})$/);
+      if (m) return !allow.has(`${m[1]}|${m[2]}`);
+      return false;
+    }
+
+    const CATEGORIES = [
+      { id: "almanac", label: "图鉴", test: (k) => /_(DESCRIPTION|DESCRIPTION_HEADER|TOOLTIP|FLAVOR|PLANTFOOD)\b/.test(k) || /_DESCRIPTION_HEADER$/.test(k) },
+      { id: "plant_name", label: "植物名", test: (k) => /^[A-Z][A-Z0-9]*$/.test(k) && !k.includes("_") },
+      { id: "narrative", label: "剧情对白", test: (k) => k.startsWith("NARRATIVE_") && !k.includes("EPIC_QUEST") && !k.includes("REALM") },
+      { id: "epic_narrative", label: "史诗对白", test: (k) => k.startsWith("NARRATIVE_EPIC_QUEST_") || k.startsWith("NARRATIVE_EPIC_REALM") },
+      { id: "epic_title", label: "史诗任务标题", test: (k) => (k.startsWith("EPIC_QUEST_") && (k.includes("TITLE") || k.includes("LEVEL_NAME"))) || k.startsWith("PLAYERS_EPIC_QUEST_") },
+      { id: "epic_realm", label: "史诗领域", test: (k) => /REALM/i.test(k) && !k.startsWith("NARRATIVE_") },
+      { id: "costume", label: "装扮/商店", test: (k) => /^(product_|PRODUCT_)/i.test(k) || /costume|COSTUME|custom\d*_name|SKIN/i.test(k) },
+      { id: "ui", label: "UI/菜单", test: (k) => /^(UI_|BUTTON_|MENU_|SETTINGS_|DIALOG_|POPUP_|TIP_|HINT_|TOAST_)/i.test(k) || /SETTINGS|BUTTON|MENU|ACCOUNT_|SIGN_IN|CLOUD_SAVE/i.test(k) },
+      { id: "level", label: "关卡/目标", test: (k) => /OBJECTIVE|TUTORIAL|LEVEL_NAME|WIN_|LOSE_|WAVE_/i.test(k) },
+      { id: "achievement", label: "成就", test: (k) => /^achieve_|ACHIEVEMENT/i.test(k) },
+      { id: "zombie", label: "僵尸相关", test: (k) => /ZOMBIE|ZOMBOT|IMP|GARGANTUAR/i.test(k) && !/NARRATIVE_/i.test(k) },
+      { id: "other", label: "其它", test: () => true },
+    ];
+
+    function categorize(key) {
+      for (const c of CATEGORIES) {
+        if (c.test(key)) return c;
+      }
+      return CATEGORIES[CATEGORIES.length - 1];
+    }
+
+    function loadSeen() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return new Set();
+        const arr = JSON.parse(raw);
+        return new Set(Array.isArray(arr) ? arr : []);
+      } catch {
+        return new Set();
+      }
+    }
+
+    function saveSeen() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...seen]));
+    }
+
+    function setStatus(msg, ok) {
+      el.status.textContent = msg;
+      el.status.style.color = ok === false ? "var(--warn)" : "var(--muted)";
+    }
+
+    function usableValue(v) {
+      return typeof v === "string" && v.trim().length > 0;
+    }
+
+    function rebuildPool() {
+      if (!enMap || !zhMap) {
+        poolKeys = [];
+        passLteCount = 0;
+        updateStats();
+        return;
+      }
+      const allow = buildLteReplayAllow(enMap);
+      const keys = [];
+      passLteCount = 0;
+      for (const k of Object.keys(enMap)) {
+        if (!(k in zhMap)) continue;
+        if (!usableValue(enMap[k]) || !usableValue(zhMap[k])) continue;
+        // 跳过纯占位/完全相同的超短代码，减少噪声
+        const en = enMap[k];
+        const zh = zhMap[k];
+        if (en === zh && en.length <= 3) continue;
+        if (isLegacyLteOutOfScope(k, allow)) {
+          passLteCount += 1;
+          continue;
+        }
+        keys.push(k);
+      }
+      poolKeys = keys;
+      updateStats();
+      const ready = poolKeys.length > 0;
+      el.nextBatch.disabled = !ready;
+      el.resetSeen.disabled = !ready && seen.size === 0;
+      if (ready) {
+        setStatus(
+          `已就绪，可抽 ${poolKeys.length - countUnseenOverlap()} 条未见（池内 ${poolKeys.length}；Pass 旧 LTE ${passLteCount}）`,
+          true
+        );
+      }
+    }
+
+    function countUnseenOverlap() {
+      let n = 0;
+      for (const k of poolKeys) if (seen.has(k)) n++;
+      return n;
+    }
+
+    function updateStats(batchCats) {
+      el.statCommon.textContent = enMap && zhMap ? String(poolKeys.length) : "—";
+      const unseen = poolKeys.filter((k) => !seen.has(k)).length;
+      el.statPool.textContent = enMap && zhMap ? String(unseen) : "—";
+      el.statSeen.textContent = String(seen.size);
+      el.statPassLte.textContent = enMap && zhMap ? String(passLteCount) : "—";
+      el.statCats.textContent = batchCats && batchCats.length ? batchCats.join(" · ") : "—";
+      el.resetSeen.disabled = seen.size === 0 && !enMap;
+    }
+
+    async function readJsonFile(file) {
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if (!data || typeof data !== "object" || Array.isArray(data)) {
+        throw new Error("JSON 需为扁平对象 { key: string }");
+      }
+      return data;
+    }
+
+    el.enFile.addEventListener("change", async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      try {
+        enMap = await readJsonFile(f);
+        setStatus(`EN 已载入：${f.name}（${Object.keys(enMap).length} 键）`, true);
+        rebuildPool();
+      } catch (err) {
+        setStatus(`EN 解析失败：${err.message}`, false);
+      }
+    });
+
+    el.zhFile.addEventListener("change", async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      try {
+        zhMap = await readJsonFile(f);
+        setStatus(`ZH 已载入：${f.name}（${Object.keys(zhMap).length} 键）`, true);
+        rebuildPool();
+      } catch (err) {
+        setStatus(`ZH 解析失败：${err.message}`, false);
+      }
+    });
+
+    el.tryLocal.addEventListener("click", async () => {
+      try {
+        const [enRes, zhRes] = await Promise.all([
+          fetch("./LawnStrings_en.json"),
+          fetch("./LawnStrings_zh.json"),
+        ]);
+        if (!enRes.ok || !zhRes.ok) throw new Error("HTTP 加载失败（请用本地静态服务打开本页，或改用文件导入）");
+        enMap = await enRes.json();
+        zhMap = await zhRes.json();
+        setStatus("已从同目录自动加载 EN/ZH", true);
+        rebuildPool();
+      } catch (err) {
+        setStatus(`自动加载失败：${err.message}`, false);
+      }
+    });
+
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function pickDiverseBatch(n = 10) {
+      const unseen = poolKeys.filter((k) => !seen.has(k));
+      if (unseen.length === 0) return [];
+
+      /** @type {Map<string, string[]>} */
+      const byCat = new Map();
+      for (const k of unseen) {
+        const c = categorize(k);
+        if (!byCat.has(c.id)) byCat.set(c.id, []);
+        byCat.get(c.id).push(k);
+      }
+      for (const list of byCat.values()) shuffle(list);
+
+      // 优先非 other，打乱品类顺序后各取 1，再补齐
+      const prefer = CATEGORIES.map((c) => c.id).filter((id) => id !== "other" && byCat.has(id));
+      shuffle(prefer);
+      if (byCat.has("other")) prefer.push("other");
+
+      const picked = [];
+      const usedCats = [];
+
+      // 第一轮：每类最多 1，尽量铺开
+      for (const id of prefer) {
+        if (picked.length >= n) break;
+        const list = byCat.get(id);
+        if (!list || !list.length) continue;
+        picked.push(list.pop());
+        usedCats.push(id);
+      }
+
+      // 第二轮：仍不足则从仍有余量的类继续轮询（仍尽量分散）
+      while (picked.length < n) {
+        let progressed = false;
+        for (const id of prefer) {
+          if (picked.length >= n) break;
+          const list = byCat.get(id);
+          if (!list || !list.length) continue;
+          picked.push(list.pop());
+          usedCats.push(id);
+          progressed = true;
+        }
+        if (!progressed) break;
+      }
+
+      return { keys: picked, cats: usedCats };
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderBatch(keys, catIds) {
+      if (!keys.length) {
+        el.list.className = "empty";
+        el.list.textContent = "池中未见键已抽完。可清空已见记录后重来，或换更新的 JSON。";
+        updateStats([]);
+        return;
+      }
+      const labelOf = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));
+      const uniqueCats = [...new Set(catIds.map((id) => labelOf[id] || id))];
+      updateStats(uniqueCats);
+
+      el.list.className = "";
+      el.list.innerHTML = keys
+        .map((k, i) => {
+          const cat = categorize(k);
+          return `
+            <article class="card">
+              <div class="meta">
+                <span class="tag">#${i + 1} ${escapeHtml(cat.label)}</span>
+                <span class="key">${escapeHtml(k)}</span>
+              </div>
+              <div class="pair">
+                <div class="lang en"><div class="label">EN</div>${escapeHtml(enMap[k])}</div>
+                <div class="lang zh"><div class="label">ZH</div>${escapeHtml(zhMap[k])}</div>
+              </div>
+            </article>`;
+        })
+        .join("");
+
+      const chip = document.createElement("div");
+      chip.className = "cats";
+      chip.innerHTML = uniqueCats.map((c) => `<span>${escapeHtml(c)}</span>`).join("");
+      el.list.prepend(chip);
+    }
+
+    el.nextBatch.addEventListener("click", () => {
+      if (!enMap || !zhMap) return;
+      const result = pickDiverseBatch(10);
+      const keys = result.keys || [];
+      for (const k of keys) seen.add(k);
+      saveSeen();
+      renderBatch(keys, result.cats || []);
+      const left = poolKeys.filter((k) => !seen.has(k)).length;
+      setStatus(keys.length ? `已抽出 ${keys.length} 条；剩余未见 ${left}` : "未见键已耗尽", keys.length > 0);
+      el.resetSeen.disabled = seen.size === 0;
+    });
+
+    el.resetSeen.addEventListener("click", () => {
+      if (!confirm("清空本机已见记录？之后可重新抽到旧键。")) return;
+      seen = new Set();
+      saveSeen();
+      updateStats();
+      setStatus("已见记录已清空", true);
+      el.resetSeen.disabled = true;
+    });
+
+    updateStats();
+  </script>
+</body>
+</html>
