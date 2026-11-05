@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Align contested terms to 参考翻译2 plant names + selected system terms."""
+"""Align contested terms to locked plant names + selected system terms."""
 from __future__ import annotations
 
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 ZH_PATH = ROOT / "localization" / "LawnStrings_zh.json"
 
-# Longer / more specific first. Targets = 参考翻译2 植物短名 + 用户选定系统词。
+# Longer / more specific first. Targets = 锁表/社区植物短名 + 用户选定系统词。
 GLOBAL: list[tuple[str, str]] = [
     # --- system / user-selected ---
     ("植物养料", "叶绿素"),
@@ -20,7 +20,7 @@ GLOBAL: list[tuple[str, str]] = [
     # Neon world
     ("眩光魔音游", "炫光魔音游"),
     ("霓虹旋音游", "炫光魔音游"),
-    # --- plant names → 参考翻译2（含旧别名）---
+    # --- plant names → 锁表/社区短名（含旧别名）---
     ("超能力花椰菜", "超能花菜"),
     ("花椰菜武帝", "超能花菜"),
     ("超能花菜", "超能花菜"),  # no-op keep
