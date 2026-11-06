@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """PvZ2 Reflourished 1.4.2 OBB slot layout + Packages extract/write helpers.
 
-Centralizes offsets previously scattered across scripts and 汉化教程.md.
+Centralizes offsets previously scattered across scripts and docs.
 """
 from __future__ import annotations
 

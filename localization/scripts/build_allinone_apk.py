@@ -24,17 +24,40 @@ from apk_toolchain import (
 )
 
 REPO = Path(__file__).resolve().parents[2]
+RELEASE = REPO / "release_zh"
+OUT_ZH = REPO / "out_zh"
 DEFAULT_DECODED = REPO / "work" / "apk_decoded"
-DEFAULT_OBB = Path(r"F:\sen_work\main_schemeA_almanac.obb")
-DEFAULT_RTON_CANDIDATES = [
-    Path(r"F:\sen_work\current\LawnStrings-en-us.rton"),
-    Path(r"F:\sen_work\LawnStrings_zh.rton"),
+DEFAULT_OBB_CANDIDATES = [
+    RELEASE / "main.675.com.ea.game.pvz2_rfl.obb",
+    OUT_ZH / "main.675.com.ea.game.pvz2_rfl.obb",
+    RELEASE / "main_schemeA_almanac.obb",
+    OUT_ZH / "main_schemeA_almanac.obb",
 ]
-DEFAULT_KEYSTORE = Path(r"F:\sen_work\debug.keystore")
-DEFAULT_OUT = Path(r"F:\sen_work\PvZ2_Reflourished_1.4.2_zh_allinone.apk")
+DEFAULT_RTON_CANDIDATES = [
+    RELEASE / "LawnStrings-en-us.rton",
+    REPO / "localization" / "current" / "LawnStrings-en-us.rton",
+    REPO / "localization" / "LawnStrings_zh.rton",
+    OUT_ZH / "LawnStrings-en-us.rton",
+]
+DEFAULT_KEYSTORE = RELEASE / "debug.keystore"
+DEFAULT_OUT = RELEASE / "PvZ2_Reflourished_1.4.2_zh_allinone.apk"
 OBB_ASSET = "assets/obb/main.675.com.ea.game.pvz2_rfl.obb"
 RTON_ASSET = "assets/cdn/LawnStrings-en-us.rton"
 VERSION_ASSET = "assets/pvz2_zh_payload.version"
+
+
+def resolve_obb(explicit: Path | None) -> Path:
+    if explicit is not None:
+        if not explicit.is_file():
+            raise SystemExit(f"OBB not found: {explicit}")
+        return explicit
+    for p in DEFAULT_OBB_CANDIDATES:
+        if p.is_file():
+            return p
+    raise SystemExit(
+        "No ZH OBB found. Pass --obb, or place main.675….obb under "
+        f"{RELEASE} or {OUT_ZH}"
+    )
 
 
 def resolve_rton(explicit: Path | None) -> Path:
@@ -45,7 +68,10 @@ def resolve_rton(explicit: Path | None) -> Path:
     for p in DEFAULT_RTON_CANDIDATES:
         if p.is_file():
             return p
-    raise SystemExit("No LawnStrings RTON found (current/ or LawnStrings_zh.rton)")
+    raise SystemExit(
+        "No LawnStrings RTON found (release_zh/ / localization/current/ / "
+        "LawnStrings_zh.rton)"
+    )
 
 
 def file_md5(path: Path, chunk: int = 8 * 1024 * 1024) -> str:
@@ -123,7 +149,12 @@ def verify_embedded(signed: Path, obb: Path, rton: Path) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--decoded", type=Path, default=DEFAULT_DECODED)
-    ap.add_argument("--obb", type=Path, default=DEFAULT_OBB)
+    ap.add_argument(
+        "--obb",
+        type=Path,
+        default=None,
+        help=f"ZH OBB (default: first hit under {RELEASE.name}/ or {OUT_ZH.name}/)",
+    )
     ap.add_argument("--rton", type=Path, default=None)
     ap.add_argument("--keystore", type=Path, default=DEFAULT_KEYSTORE)
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
@@ -141,26 +172,30 @@ def main() -> int:
 
     if not args.decoded.is_dir():
         raise SystemExit(f"decoded APK dir missing: {args.decoded}")
-    if not args.obb.is_file():
-        raise SystemExit(f"OBB missing: {args.obb}")
+    obb = resolve_obb(args.obb)
     rton = resolve_rton(args.rton)
     if not args.keystore.is_file():
-        raise SystemExit(f"keystore missing: {args.keystore}")
+        raise SystemExit(
+            f"keystore missing: {args.keystore}\n"
+            f"Place debug.keystore under {RELEASE} or pass --keystore"
+        )
 
     version = args.version
     if not version:
-        version = f"1.4.2-almanac-{file_md5(rton)[:12]}-obb{args.obb.stat().st_size}"
+        version = f"1.4.2-almanac-{file_md5(rton)[:12]}-obb{obb.stat().st_size}"
 
-    work = args.out.parent
+    out = args.out
+    out.parent.mkdir(parents=True, exist_ok=True)
+    work = out.parent
     unsigned_base = work / "PvZ2_RFL_zh_allinone_base_unsigned.apk"
     unsigned_fat = work / "PvZ2_RFL_zh_allinone_unsigned.apk"
     aligned = work / "PvZ2_RFL_zh_allinone_aligned.apk"
 
     print(f"decoded : {args.decoded}")
-    print(f"obb     : {args.obb} ({args.obb.stat().st_size})")
+    print(f"obb     : {obb} ({obb.stat().st_size})")
     print(f"rton    : {rton} ({rton.stat().st_size})")
     print(f"version : {version}")
-    print(f"out     : {args.out}")
+    print(f"out     : {out}")
 
     if not args.skip_apktool:
         apktool_build(args.decoded, unsigned_base)
@@ -168,13 +203,13 @@ def main() -> int:
         raise SystemExit(f"--skip-apktool but missing {unsigned_base}")
 
     print("Injecting STORED assets…", flush=True)
-    inject_stored_assets(unsigned_base, unsigned_fat, args.obb, rton, version)
+    inject_stored_assets(unsigned_base, unsigned_fat, obb, rton, version)
 
     bt = find_build_tools()
     print(f"build-tools: {bt}", flush=True)
-    zipalign_sign(unsigned_fat, aligned, args.out, args.keystore, bt)
-    verify_embedded(args.out, args.obb, rton)
-    print(f"DONE {args.out} ({args.out.stat().st_size} bytes)", flush=True)
+    zipalign_sign(unsigned_fat, aligned, out, args.keystore, bt)
+    verify_embedded(out, obb, rton)
+    print(f"DONE {out} ({out.stat().st_size} bytes)", flush=True)
     return 0
 
 

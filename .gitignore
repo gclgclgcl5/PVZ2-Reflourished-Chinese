@@ -5,10 +5,10 @@ PvZ2 Reflourished*.apk
 /work/
 /tools/
 
-# release_zh：大二进制走 GitHub Releases，勿入库
+# release_zh / out_zh：大二进制走 GitHub Releases，勿入库
 /release_zh/*.obb
 /release_zh/*.apk
-
+/out_zh/
 # Python
 __pycache__/
 *.py[cod]

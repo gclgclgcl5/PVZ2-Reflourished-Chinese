@@ -25,7 +25,7 @@ python -m unittest localization.scripts.tests.test_lawnstrings_rton -v
 - 槽位上限：`LAWNSTRINGS_SLOT = 2666496`（见 `repack_obb_packages.py`）
 
 权威文案：[`LawnStrings_zh.json`](./LawnStrings_zh.json)。  
-完整装包流程见 [汉化教程.md](./汉化教程.md)。
+出包流程见 [维护者工作流.md](./维护者工作流.md)；玩家安装见 [用户安装.md](../用户安装.md)。
 
 ## 规格参考（可选阅读）
 

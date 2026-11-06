@@ -322,6 +322,52 @@ def write_obb_with_pgsr(base_obb: bytes, pgsr: bytes, csize: int, usize: int) ->
     return bytes(data)
 
 
+REQUIRED_FULL_COVERAGE = (
+    "fbUsv8C5eI_full.ttf",
+    "BrianneTod.ttf",
+    "Pico12.ttf",
+    "Ashley_Script_MT_Std.ttf",
+)
+
+
+def require_full_coverage_fonts(fonts_dir: Path) -> None:
+    missing = [n for n in REQUIRED_FULL_COVERAGE if not (fonts_dir / n).is_file()]
+    if missing:
+        raise SystemExit(
+            f"fonts_cjk 缺少方案 A 字体: {', '.join(missing)}\n"
+            f"目录: {fonts_dir}\n"
+            "请先运行: python localization/scripts/build_dialogue_cjk_fonts.py --skip-download\n"
+            "（或去掉 --skip-download 以下载 fonts_src）"
+        )
+
+
+def apply_full_coverage_obb(
+    stock_obb: Path | bytes,
+    base_obb: Path | bytes,
+    fonts_dir: Path,
+    out_obb: Path,
+    *,
+    stock_file_off: int = 0xB17B000,
+) -> Path:
+    """Attach full-coverage LoadingFonts (Scheme A) onto base_obb; write out_obb."""
+    require_full_coverage_fonts(fonts_dir)
+    stock = stock_obb.read_bytes() if isinstance(stock_obb, Path) else stock_obb
+    base = base_obb.read_bytes() if isinstance(base_obb, Path) else base_obb
+    replace = ["BRIANNETOD.TTF", "PICO12__.TTF", "ASHLEYSCRIPTMTSTD.TTF"]
+    hdr, _z, payload = read_pgsr(stock, stock_file_off)
+    if len(payload) != STOCK_USIZE:
+        print(f"warn stock payload {len(payload):#x} != {STOCK_USIZE:#x}")
+    print("mode=full-coverage replace=", ", ".join(replace))
+    pgsr, csize, usize = build_pgsr(
+        hdr, payload, fonts_dir, replace, stub_others=False, full_coverage=True
+    )
+    out = write_obb_with_pgsr(base, pgsr, csize, usize)
+    out_obb.parent.mkdir(parents=True, exist_ok=True)
+    out_obb.write_bytes(out)
+    print(f"wrote {out_obb} ({len(out)} bytes)")
+    return out_obb
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--stock-obb", type=Path, required=True)

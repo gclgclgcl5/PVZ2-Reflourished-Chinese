@@ -18,11 +18,13 @@ sys.path.insert(0, str(SCRIPTS))
 
 from apk_toolchain import check_apk_deps  # noqa: E402
 from obb_layout_142 import OBB_NAME  # noqa: E402
+from reproduce_zh import DEFAULT_FONTS_DIR  # noqa: E402
 from reproduce_zh import reproduce as reproduce_obb  # noqa: E402
 from reproduce_zh_apk import ZH_APK_NAME  # noqa: E402
 from reproduce_zh_apk import reproduce as reproduce_apk  # noqa: E402
 
-DEFAULT_OUT = Path(r"F:\sen_work\out_reproduce_zh")
+REPO = SCRIPTS.parent.parent
+DEFAULT_OUT = REPO / "out_zh"
 
 
 class _QueueWriter:
@@ -51,9 +53,10 @@ class ReproduceApp(tk.Tk):
 
         self.obb_var = tk.StringVar()
         self.apk_var = tk.StringVar()
-        self.out_var = tk.StringVar(
-            value=str(DEFAULT_OUT if DEFAULT_OUT.parent.is_dir() else Path.cwd() / "out_zh")
+        self.fonts_var = tk.StringVar(
+            value=str(DEFAULT_FONTS_DIR if DEFAULT_FONTS_DIR.is_dir() else "")
         )
+        self.out_var = tk.StringVar(value=str(DEFAULT_OUT))
 
         self._build()
         self.after(100, self._drain_log)
@@ -78,9 +81,9 @@ class ReproduceApp(tk.Tk):
             row=1, column=0, columnspan=3, sticky=tk.EW, pady=6
         )
 
-        ttk.Label(frm, text="OBB：原版 → 汉化 OBB + CDN RTON").grid(
-            row=2, column=0, columnspan=3, sticky=tk.W, **pad
-        )
+        ttk.Label(
+            frm, text="OBB：原版 → 汉化 OBB + CDN RTON（方案 A 多字体）"
+        ).grid(row=2, column=0, columnspan=3, sticky=tk.W, **pad)
         ttk.Label(frm, text="原版 OBB").grid(row=3, column=0, sticky=tk.W, **pad)
         ttk.Entry(frm, textvariable=self.obb_var).grid(
             row=3, column=1, sticky=tk.EW, **pad
@@ -89,8 +92,16 @@ class ReproduceApp(tk.Tk):
             row=3, column=2, **pad
         )
 
+        ttk.Label(frm, text="fonts_cjk").grid(row=4, column=0, sticky=tk.W, **pad)
+        ttk.Entry(frm, textvariable=self.fonts_var).grid(
+            row=4, column=1, sticky=tk.EW, **pad
+        )
+        ttk.Button(frm, text="浏览…", command=self._browse_fonts).grid(
+            row=4, column=2, **pad
+        )
+
         obb_btns = ttk.Frame(frm)
-        obb_btns.grid(row=4, column=0, columnspan=3, sticky=tk.W, **pad)
+        obb_btns.grid(row=5, column=0, columnspan=3, sticky=tk.W, **pad)
         self.obb_btn = ttk.Button(obb_btns, text="开始复刻 OBB", command=self._start_obb)
         self.obb_btn.pack(side=tk.LEFT, padx=(0, 8))
         ttk.Button(obb_btns, text="复制 OBB/CDN adb", command=self._copy_adb_obb).pack(
@@ -98,22 +109,22 @@ class ReproduceApp(tk.Tk):
         )
 
         ttk.Separator(frm, orient=tk.HORIZONTAL).grid(
-            row=5, column=0, columnspan=3, sticky=tk.EW, pady=6
+            row=6, column=0, columnspan=3, sticky=tk.EW, pady=6
         )
 
         ttk.Label(frm, text="APK：原版 → CDN skip + Glyph 重签（需 apktool/JDK/SDK）").grid(
-            row=6, column=0, columnspan=3, sticky=tk.W, **pad
+            row=7, column=0, columnspan=3, sticky=tk.W, **pad
         )
-        ttk.Label(frm, text="原版 APK").grid(row=7, column=0, sticky=tk.W, **pad)
+        ttk.Label(frm, text="原版 APK").grid(row=8, column=0, sticky=tk.W, **pad)
         ttk.Entry(frm, textvariable=self.apk_var).grid(
-            row=7, column=1, sticky=tk.EW, **pad
+            row=8, column=1, sticky=tk.EW, **pad
         )
         ttk.Button(frm, text="浏览…", command=self._browse_apk).grid(
-            row=7, column=2, **pad
+            row=8, column=2, **pad
         )
 
         apk_btns = ttk.Frame(frm)
-        apk_btns.grid(row=8, column=0, columnspan=3, sticky=tk.W, **pad)
+        apk_btns.grid(row=9, column=0, columnspan=3, sticky=tk.W, **pad)
         self.apk_btn = ttk.Button(apk_btns, text="开始打 APK", command=self._start_apk)
         self.apk_btn.pack(side=tk.LEFT, padx=(0, 8))
         ttk.Button(apk_btns, text="复制 adb install", command=self._copy_adb_apk).pack(
@@ -124,22 +135,22 @@ class ReproduceApp(tk.Tk):
         )
         self.open_btn.pack(side=tk.LEFT)
 
-        ttk.Label(frm, text="日志").grid(row=9, column=0, sticky=tk.NW, **pad)
+        ttk.Label(frm, text="日志").grid(row=10, column=0, sticky=tk.NW, **pad)
         self.log = scrolledtext.ScrolledText(
-            frm, height=18, wrap=tk.WORD, state=tk.DISABLED
+            frm, height=16, wrap=tk.WORD, state=tk.DISABLED
         )
-        self.log.grid(row=10, column=0, columnspan=3, sticky=tk.NSEW, **pad)
+        self.log.grid(row=11, column=0, columnspan=3, sticky=tk.NSEW, **pad)
 
         tip = (
-            "完整三件套 = 汉化 APK + 汉化 OBB + LawnStrings-en-us.rton。"
-            "换签名后需先卸载旧包；单体 all-in-one 不在此窗口。"
+            "OBB 仅方案 A 多字体（需 fonts_cjk）。完整三件套 = 汉化 APK + OBB + CDN RTON。"
+            "换签名先卸载；单体 all-in-one 用 build_allinone_apk.py。"
         )
         ttk.Label(frm, text=tip, wraplength=740).grid(
-            row=11, column=0, columnspan=3, sticky=tk.W, **pad
+            row=12, column=0, columnspan=3, sticky=tk.W, **pad
         )
 
         frm.columnconfigure(1, weight=1)
-        frm.rowconfigure(10, weight=1)
+        frm.rowconfigure(11, weight=1)
 
     def _show_dep_hints(self) -> None:
         msgs = check_apk_deps()
@@ -158,6 +169,11 @@ class ReproduceApp(tk.Tk):
         )
         if path:
             self.obb_var.set(path)
+
+    def _browse_fonts(self) -> None:
+        path = filedialog.askdirectory(title="选择 fonts_cjk 目录")
+        if path:
+            self.fonts_var.set(path)
 
     def _browse_apk(self) -> None:
         path = filedialog.askopenfilename(
@@ -229,11 +245,13 @@ class ReproduceApp(tk.Tk):
         if not obb.is_file():
             messagebox.showerror("错误", f"找不到 OBB：\n{obb}")
             return
+        fonts_raw = self.fonts_var.get().strip()
+        fonts_dir = Path(fonts_raw) if fonts_raw else None
 
         def job(out_dir: Path) -> None:
-            reproduce_obb(obb, out_dir)
+            reproduce_obb(obb, out_dir, fonts_dir=fonts_dir)
 
-        self._run_job(f"OBB: {obb}", job)
+        self._run_job(f"OBB: {obb}\nfonts: {fonts_dir or '(default)'}", job)
 
     def _start_apk(self) -> None:
         apk = Path(self.apk_var.get().strip())

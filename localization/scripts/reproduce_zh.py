@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """One-shot: stock Reflourished 1.4.2 OBB -> Chinese OBB + CDN LawnStrings RTON.
 
-Uses in-repo translations / STAT / OBJ keys. Dialogue fonts: BLACK_* remap
-(no fonts_cjk required). Pair the output OBB+RTON with a ZH APK that has the
-CDN skip patch (Releases or 汉化教程 §6).
+Uses in-repo translations / STAT / OBJ keys. Dialogue fonts: Scheme A
+LoadingFonts --full-coverage (requires fonts_cjk; see build_dialogue_cjk_fonts.py).
+Pair the output OBB+RTON with a ZH APK that has the CDN skip patch.
 
 Example:
   python localization/scripts/reproduce_zh.py \\
     --obb F:\\path\\main.675.com.ea.game.pvz2_rfl.obb \\
-    --out-dir F:\\out_zh
+    --out-dir F:\\out_zh \\
+    --fonts-dir F:\\sen_work\\fonts_cjk
 """
 from __future__ import annotations
 
@@ -31,9 +32,9 @@ from obb_layout_142 import (  # noqa: E402
     extract_packages_section,
     write_packages_section,
 )
-from patch_dialogue_font_compat import (  # noqa: E402
-    alias_brianne_in_obb,
-    remap_dialogue_fonts_in_section,
+from patch_loadingfonts_append import (  # noqa: E402
+    apply_full_coverage_obb,
+    require_full_coverage_fonts,
 )
 from patch_packages_almanac_literals import (  # noqa: E402
     patch_section as patch_almanac_section,
@@ -47,6 +48,8 @@ from patch_packages_objective_literals import (  # noqa: E402
 )
 from repack_obb_packages import patch_section as patch_lawnstrings_section  # noqa: E402
 from sync_lawnstrings import sync  # noqa: E402
+
+DEFAULT_FONTS_DIR = Path(r"F:\sen_work\fonts_cjk")
 
 
 def _encode_current_rton(out_rton: Path, *, release_rton: Path | None) -> Path:
@@ -62,7 +65,6 @@ def _encode_current_rton(out_rton: Path, *, release_rton: Path | None) -> Path:
         obj_path=LOC / "objective_keys.json",
     )
     data = encode_rton_to_file(pairs, out_rton, slot_limit=LAWNSTRINGS_SLOT)
-    # Keep localization/LawnStrings_zh.rton in sync
     root_rton = LOC / "LawnStrings_zh.rton"
     if out_rton.resolve() != root_rton.resolve():
         shutil.copy2(out_rton, root_rton)
@@ -88,13 +90,36 @@ def _merge_keys_file(path: Path, new_keys: dict[str, str]) -> None:
     print(f"merged {len(new_keys)} keys -> {path} (total {len(existing)})")
 
 
-def reproduce(obb: Path, out_dir: Path) -> None:
+def resolve_fonts_dir(explicit: Path | None) -> Path:
+    candidates = []
+    if explicit is not None:
+        candidates.append(explicit)
+    candidates.extend(
+        [
+            DEFAULT_FONTS_DIR,
+            LOC / "fonts_cjk",
+            Path(r"F:\sen_work\fonts_cjk"),
+        ]
+    )
+    for c in candidates:
+        if c.is_dir() and (c / "fbUsv8C5eI_full.ttf").is_file():
+            return c
+    # Prefer first existing dir for error message context
+    for c in candidates:
+        if c.is_dir():
+            return c
+    return explicit or DEFAULT_FONTS_DIR
+
+
+def reproduce(obb: Path, out_dir: Path, *, fonts_dir: Path | None = None) -> None:
     if not obb.is_file():
         raise SystemExit(f"OBB not found: {obb}")
     raw_head = obb.read_bytes()[:4]
     if raw_head != OBB_MAGIC:
         raise SystemExit(f"not an RSB OBB (magic={raw_head!r}): {obb}")
 
+    fonts = resolve_fonts_dir(fonts_dir)
+    require_full_coverage_fonts(fonts)
     out_dir.mkdir(parents=True, exist_ok=True)
     work = out_dir / "work"
     work.mkdir(parents=True, exist_ok=True)
@@ -134,9 +159,7 @@ def reproduce(obb: Path, out_dir: Path) -> None:
         print(f"note: {en_path.name} missing — OBJ table uses EXTRA_ZH + zh only")
     discovered = discover_objective_literals(section)
     translations = build_translation_table(discovered, en=en_map, zh=zh_map)
-    section, ocounts, new_obj = patch_objective_section(
-        section, translations, None
-    )
+    section, ocounts, new_obj = patch_objective_section(section, translations, None)
     print(
         f"objectives patched {sum(ocounts.values())} hits / {len(ocounts)} literals; "
         f"new OBJ keys={len(new_obj)}"
@@ -147,26 +170,22 @@ def reproduce(obb: Path, out_dir: Path) -> None:
         encoding="utf-8",
     )
 
-    almanac_section = work / "packages_almanac_obj.bin"
-    almanac_section.write_bytes(section)
+    (work / "packages_almanac_obj.bin").write_bytes(section)
 
     print("== 5/8 encode LawnStrings (pass 2, with STAT/OBJ) ==")
     _encode_current_rton(out_rton, release_rton=cdn_rton)
 
-    print("== 6/8 inject LawnStrings x6 ==")
+    print("== 6/8 inject LawnStrings x6 (keep original FontName) ==")
     section = patch_lawnstrings_section(section, out_rton.read_bytes())
-    (work / "packages_with_lawn.bin").write_bytes(section)
-
-    print("== 7/8 BLACK dialogue font remap ==")
-    section = remap_dialogue_fonts_in_section(section)
     (work / "packages_final.bin").write_bytes(section)
 
-    print("== 8/8 write OBB + obbVersion ==")
+    print("== 7/8 write Packages into OBB ==")
     out_obb = out_dir / OBB_NAME
-    write_packages_section(obb, section, out_obb, already_compressed=False)
-    obb_buf = bytearray(out_obb.read_bytes())
-    alias_brianne_in_obb(obb_buf)
-    out_obb.write_bytes(obb_buf)
+    packages_obb = work / "obb_packages_only.obb"
+    write_packages_section(obb, section, packages_obb, already_compressed=False)
+
+    print(f"== 8/8 LoadingFonts Scheme A full-coverage (fonts={fonts}) ==")
+    apply_full_coverage_obb(obb, packages_obb, fonts, out_obb)
     (out_dir / "obbVersion").write_text(OBB_VERSION, encoding="ascii")
     print(f"wrote {out_dir / 'obbVersion'!s} = {OBB_VERSION}")
 
@@ -179,21 +198,17 @@ def reproduce(obb: Path, out_dir: Path) -> None:
     print("Install (pair with a ZH APK that has CDN skip patch):")
     print(f"  adb install -r <PvZ2_Reflourished_1.4.2_zh.apk>")
     print(
-        f"  adb push \"{out_obb}\" "
+        f'  adb push "{out_obb}" '
         f"/sdcard/Android/obb/com.ea.game.pvz2_rfl/{OBB_NAME}"
     )
     print(
-        f"  adb push \"{out_dir / 'obbVersion'}\" "
+        f'  adb push "{out_dir / "obbVersion"}" '
         f"/sdcard/Android/obb/com.ea.game.pvz2_rfl/obbVersion"
     )
     print(
-        f"  adb push \"{cdn_rton}\" "
+        f'  adb push "{cdn_rton}" '
         "/sdcard/Android/data/com.ea.game.pvz2_rfl/files/No_Backup/"
         "CDN.1.4.2/LawnStrings-en-us.rton"
-    )
-    print(
-        "  # Prefer launching the desktop icon (BootstrapActivity), "
-        "not PvZ2GameActivity directly."
     )
 
 
@@ -211,8 +226,14 @@ def main() -> None:
         required=True,
         help="output directory for zh OBB + CDN RTON",
     )
+    ap.add_argument(
+        "--fonts-dir",
+        type=Path,
+        default=None,
+        help=f"Scheme A fonts_cjk (default: {DEFAULT_FONTS_DIR})",
+    )
     args = ap.parse_args()
-    reproduce(args.obb, args.out_dir)
+    reproduce(args.obb, args.out_dir, fonts_dir=args.fonts_dir)
 
 
 if __name__ == "__main__":
