@@ -7,27 +7,37 @@ For PvZ2 Reflourished 1.4.2 main.675.com.ea.game.pvz2_rfl.obb:
   - Use streaming compressobj at level 19 so the frame matches the game decoder
 
 Workflow:
-  1. Extract packages_section.bin from OBB (see 汉化教程.md)
-  2. Encode Chinese LawnStrings_zh.rton with Sen
+  1. Extract packages_section.bin via obb_layout_142.extract_packages_section
+  2. Encode Chinese LawnStrings_zh.rton (build_zh_rton.py)
   3. python repack_obb_packages.py packages_section.bin LawnStrings_zh.rton out_section.bin
-  4. Paste out_section.bin back into OBB / rebuild with Sen
-
-This script only patches the decompressed Packages *section* and writes a new
-zstd blob + updated section file. Pasting into the OBB is documented separately.
+  4. Write back with obb_layout_142.write_packages_section
 """
 from __future__ import annotations
 
 import argparse
-import struct
 from pathlib import Path
 
-import zstandard as zstd
+from obb_layout_142 import (
+    LAWNSTRINGS_SLOT,
+    LAWNSTRINGS_STARTS,
+    ORIG_CSIZE,
+    PACKAGES_CSIZE,
+    compress_packages_section,
+    compress_packages_zstd,
+    pad_to_csize,
+)
 
-# Offsets of the 6 identical LawnStrings blobs inside packages_section.bin (1.4.2)
-LAWNSTRINGS_STARTS = [1540096, 4206592, 6873088, 9539584, 12206080, 14872576]
-LAWNSTRINGS_SLOT = 2666496  # bytes reserved per copy
-# Original Packages compressed payload size in this OBB build
-ORIG_CSIZE = 3522560
+# Re-export for callers that import from this module
+__all__ = [
+    "LAWNSTRINGS_SLOT",
+    "LAWNSTRINGS_STARTS",
+    "ORIG_CSIZE",
+    "PACKAGES_CSIZE",
+    "compress_packages_section",
+    "compress_packages_zstd",
+    "pad_to_csize",
+    "patch_section",
+]
 
 
 def patch_section(section: bytes, zh_rton: bytes) -> bytes:
@@ -44,32 +54,6 @@ def patch_section(section: bytes, zh_rton: bytes) -> bytes:
     return bytes(sec)
 
 
-def compress_packages_zstd(section: bytes) -> bytes:
-    """Match original non-single-segment L19 frame (desc 0x80)."""
-    params = zstd.ZstdCompressionParameters.from_level(
-        19, write_content_size=True, write_checksum=False
-    )
-    cctx = zstd.ZstdCompressor(compression_params=params)
-    cobj = cctx.compressobj(size=len(section))
-    out = cobj.compress(section) + cobj.flush()
-    if out[:4] != b"\x28\xb5\x2f\xfd":
-        raise SystemExit("not a zstd frame")
-    fd = out[4]
-    single = (fd >> 5) & 1
-    print(
-        f"zstd size={len(out)} desc=0x{fd:02x} single_segment={single} "
-        f"delta_vs_orig={len(out) - ORIG_CSIZE:+d}"
-    )
-    if single != 0:
-        print("WARNING: single_segment=1; game may SIGSEGV. Prefer streaming L19.")
-    if len(out) > ORIG_CSIZE:
-        print(
-            "WARNING: compressed larger than original slot; "
-            "in-place OBB patch may fail — use Sen full rebuild."
-        )
-    return out
-
-
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("section", type=Path, help="decompressed packages_section.bin")
@@ -79,7 +63,7 @@ def main() -> None:
         "--out-zstd",
         type=Path,
         default=None,
-        help="also write compressed Packages payload",
+        help="also write compressed Packages payload (padded to csize)",
     )
     args = ap.parse_args()
 
@@ -90,10 +74,8 @@ def main() -> None:
     print(f"wrote section {args.out_section} ({len(patched)} bytes)")
 
     if args.out_zstd:
-        blob = compress_packages_zstd(patched)
-        if len(blob) < ORIG_CSIZE:
-            blob = blob + b"\x00" * (ORIG_CSIZE - len(blob))
-        args.out_zstd.write_bytes(blob[:ORIG_CSIZE] if len(blob) >= ORIG_CSIZE else blob)
+        blob = pad_to_csize(compress_packages_zstd(patched))
+        args.out_zstd.write_bytes(blob)
         print(f"wrote zstd {args.out_zstd} ({args.out_zstd.stat().st_size} bytes)")
 
 

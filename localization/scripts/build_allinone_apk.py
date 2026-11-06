@@ -12,13 +12,16 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import os
 import shutil
-import subprocess
 import sys
 import zipfile
 from pathlib import Path
 
+from apk_toolchain import (
+    apktool_build,
+    find_build_tools,
+    zipalign_sign,
+)
 
 REPO = Path(__file__).resolve().parents[2]
 DEFAULT_DECODED = REPO / "work" / "apk_decoded"
@@ -34,21 +37,6 @@ RTON_ASSET = "assets/cdn/LawnStrings-en-us.rton"
 VERSION_ASSET = "assets/pvz2_zh_payload.version"
 
 
-def find_build_tools() -> Path:
-    base = Path(os.environ.get("LOCALAPPDATA", "")) / "Android" / "Sdk" / "build-tools"
-    if not base.is_dir():
-        raise SystemExit(f"Android build-tools not found: {base}")
-    versions = sorted(
-        [p for p in base.iterdir() if p.is_dir()],
-        key=lambda p: p.name,
-        reverse=True,
-    )
-    for p in versions:
-        if (p / "zipalign.exe").is_file() and (p / "apksigner.bat").is_file():
-            return p
-    raise SystemExit(f"No build-tools with zipalign.exe/apksigner.bat under {base}")
-
-
 def resolve_rton(explicit: Path | None) -> Path:
     if explicit is not None:
         if not explicit.is_file():
@@ -58,11 +46,6 @@ def resolve_rton(explicit: Path | None) -> Path:
         if p.is_file():
             return p
     raise SystemExit("No LawnStrings RTON found (current/ or LawnStrings_zh.rton)")
-
-
-def run(cmd: list[str], **kwargs) -> None:
-    print("+", " ".join(str(c) for c in cmd), flush=True)
-    subprocess.run(cmd, check=True, **kwargs)
 
 
 def file_md5(path: Path, chunk: int = 8 * 1024 * 1024) -> str:
@@ -76,13 +59,6 @@ def file_md5(path: Path, chunk: int = 8 * 1024 * 1024) -> str:
     return h.hexdigest()
 
 
-def apktool_build(decoded: Path, unsigned: Path) -> None:
-    unsigned.parent.mkdir(parents=True, exist_ok=True)
-    if unsigned.exists():
-        unsigned.unlink()
-    run(["apktool", "b", str(decoded), "-o", str(unsigned)])
-
-
 def inject_stored_assets(
     unsigned_in: Path,
     unsigned_out: Path,
@@ -92,23 +68,22 @@ def inject_stored_assets(
 ) -> None:
     if unsigned_out.exists():
         unsigned_out.unlink()
-    # Copy all existing entries, then append STORED payloads.
     with zipfile.ZipFile(unsigned_in, "r") as zin, zipfile.ZipFile(
         unsigned_out, "w", compression=zipfile.ZIP_DEFLATED
     ) as zout:
         for info in zin.infolist():
-            # Drop any stale payload paths if present
             if info.filename in (OBB_ASSET, RTON_ASSET, VERSION_ASSET):
                 continue
             data = zin.read(info.filename)
-            # Preserve compression type for existing entries
             out_info = zipfile.ZipInfo(filename=info.filename, date_time=info.date_time)
             out_info.compress_type = info.compress_type
             out_info.external_attr = info.external_attr
             out_info.create_system = info.create_system
             zout.writestr(out_info, data)
 
-        def add_stored(arcname: str, path: Path | None = None, data: bytes | None = None) -> None:
+        def add_stored(
+            arcname: str, path: Path | None = None, data: bytes | None = None
+        ) -> None:
             info = zipfile.ZipInfo(arcname)
             info.compress_type = zipfile.ZIP_STORED
             info.external_attr = 0o644 << 16
@@ -126,40 +101,6 @@ def inject_stored_assets(
         add_stored(OBB_ASSET, path=obb)
 
 
-def zipalign_sign(
-    unsigned: Path,
-    aligned: Path,
-    signed: Path,
-    keystore: Path,
-    bt: Path,
-) -> None:
-    zipalign = bt / "zipalign.exe"
-    apksigner = bt / "apksigner.bat"
-    if aligned.exists():
-        aligned.unlink()
-    if signed.exists():
-        signed.unlink()
-    run([str(zipalign), "-f", "-p", "4", str(unsigned), str(aligned)])
-    run(
-        [
-            str(apksigner),
-            "sign",
-            "--ks",
-            str(keystore),
-            "--ks-key-alias",
-            "androiddebugkey",
-            "--ks-pass",
-            "pass:android",
-            "--key-pass",
-            "pass:android",
-            "--out",
-            str(signed),
-            str(aligned),
-        ]
-    )
-    run([str(apksigner), "verify", "--verbose", str(signed)])
-
-
 def verify_embedded(signed: Path, obb: Path, rton: Path) -> None:
     with zipfile.ZipFile(signed, "r") as z:
         for name, expected in (
@@ -169,7 +110,9 @@ def verify_embedded(signed: Path, obb: Path, rton: Path) -> None:
         ):
             info = z.getinfo(name)
             if info.compress_type != zipfile.ZIP_STORED:
-                raise SystemExit(f"{name} is not STORED (compress_type={info.compress_type})")
+                raise SystemExit(
+                    f"{name} is not STORED (compress_type={info.compress_type})"
+                )
             if expected is not None and info.file_size != expected:
                 raise SystemExit(
                     f"{name} size mismatch: apk={info.file_size} file={expected}"

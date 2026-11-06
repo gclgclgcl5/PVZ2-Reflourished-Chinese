@@ -5,6 +5,7 @@
 - 联网后 UI / 图鉴 / 任务文案保持中文（APK 内 CDN 防覆盖补丁）
 - 对话气泡可显示汉字（Packages 内字体兼容映射）
 - 译文、脚本与逐步教程均在本仓库
+- LawnStrings **RTON 自研编解码**（`localization/scripts/lawnstrings_rton.py`），日常不依赖第三方 RTON GUI
 
 返茂作者已声明允许汉化；**请勿用于商业倒卖**。
 
@@ -34,34 +35,42 @@ adb push release_zh\LawnStrings-en-us.rton /sdcard/Android/data/com.ea.game.pvz2
 adb shell am start -n com.ea.game.pvz2_rfl/com.popcap.PvZ2.PvZ2GameActivity
 ```
 
-成功标准：标题为「开始」、对话为汉字、联网不回英文。细节与排错见教程。
+成功标准：标题为「开始」、对话为汉字、联网不回英文。细节与排错见教程。  
+（单体 all-in-one APK 请从桌面图标启动，走 `BootstrapActivity` 释放内嵌资源。）
 
 ## 汉化者：从零复现
 
-请直接阅读：
+**最短路径（原版 OBB → 汉化 OBB + CDN RTON）**：  
+**[localization/复刻最短路径.md](./localization/复刻最短路径.md)**（OBB：`reproduce_zh.py`；APK：`reproduce_zh_apk.py`；GUI：`reproduce_zh_gui.py`）
+
+完整逐步说明：
 
 **[localization/汉化教程.md](./localization/汉化教程.md)**
 
-覆盖：提取 LawnStrings、翻译/合并参考译、Sen 编 RTON、回封 Packages（zstd）、对话横杠修复、CDN SO 补丁、闪退踩坑等。
+覆盖：提取 LawnStrings、翻译、自研编 RTON、回封 Packages（zstd）、对话横杠修复、CDN SO 补丁、闪退踩坑等。
 
 ### 目录结构
 
 ```text
 localization/          译文、脚本、教程
   LawnStrings_zh.json  中文文案
-  scripts/             提取 / 回封 / CDN 补丁 / 对话字体
+  scripts/             提取 / RTON / 回封 / CDN 补丁 / 对话字体 / 单体打包
   汉化教程.md
 release_zh/            发布物示例（APK + CDN RTON；OBB 需自备）
 ```
 
-第三方工具 **Sen** 请自行从官网获取，勿依赖本仓库内本地 `tools/` 副本。
+### 日常改译文
+
+```powershell
+# 只改 localization/LawnStrings_zh.json 后：
+python localization\scripts\build_zh_rton.py
+```
 
 ## 环境要点
 
 - Python 3.10+（`pip install zstandard`）
-- Sen（RTON / RSB）
 - apktool、Android build-tools、JDK、adb
-- 工作路径尽量短、无空格（如 `F:\sen_work`）
+- 工作路径尽量短、无空格（如 `F:\sen_work`，仅为本地短路径目录名）
 
 ## 许可与声明
 

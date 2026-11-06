@@ -1,0 +1,622 @@
+[
+  {
+    "k": "LOADING",
+    "en": "LOADING...",
+    "zh": "正在加载…"
+  },
+  {
+    "k": "LOADINGTEXT_DEFAULT_1",
+    "en": "Putting 1s and 0s in order...",
+    "zh": "正在排列二进制代码…"
+  },
+  {
+    "k": "LOADINGTEXT_DEFAULT_2",
+    "en": "Waking up plants...",
+    "zh": "正在唤醒植物…"
+  },
+  {
+    "k": "LOADINGTEXT_DEFAULT_3",
+    "en": "Waking up zombies...",
+    "zh": "正在唤醒僵尸…"
+  },
+  {
+    "k": "LOADINGTEXT_DEFAULT_4",
+    "en": "Adding cuteness...",
+    "zh": "正在提高可爱度…"
+  },
+  {
+    "k": "LOADINGTEXT_DEFAULT_5",
+    "en": "Injecting 150% more ZANG!",
+    "zh": "正在注入 150% 的酷炫！"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_1",
+    "en": "This program has been sponsored by ZCorp.",
+    "zh": "此计划由僵企赞助。"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_2",
+    "en": "Imps prefer slippers!",
+    "zh": "小鬼僵尸更喜欢拖鞋！"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_3",
+    "en": "Helping Chomper floss...",
+    "zh": "帮助大嘴花牙线..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_4",
+    "en": "Cranking up the music boxes...",
+    "zh": "启动音乐盒..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_5",
+    "en": "I've lost my magic.",
+    "zh": "我失去了魔法。"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_6",
+    "en": "Plankton's Tip: Use the Winter Melon!",
+    "zh": "浮游生物的提示：使用冰西瓜！"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_RFL_7",
+    "en": "Attempting to enter and hopefully leave...",
+    "zh": "尝试进入并希望离开......"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_1",
+    "en": "Dusting off zombies...",
+    "zh": "掸掉僵尸的灰尘……"
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_10",
+    "en": "Feeding Pterry...",
+    "zh": "喂翼鸟..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_11",
+    "en": "Opening new portals...",
+    "zh": "打开新的传送门..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_12",
+    "en": "Mashing up holidays...",
+    "zh": "混搭假期..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_13",
+    "en": "Opening manholes...",
+    "zh": "打开沙井..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_2",
+    "en": "Walking the plank...",
+    "zh": "走木板..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_3",
+    "en": "Frying chickens...",
+    "zh": "炸鸡..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_4",
+    "en": "Predicting the future...",
+    "zh": "预测未来..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_5",
+    "en": "Downloading new spells...",
+    "zh": "正在下载新法术..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_6",
+    "en": "Cleaning up octopi...",
+    "zh": "清理章鱼..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_7",
+    "en": "Re-freezing zombies...",
+    "zh": "重新冻结僵尸..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_8",
+    "en": "Downloading new temples...",
+    "zh": "正在下载新寺庙..."
+  },
+  {
+    "k": "LOADINGTEXT_GENERIC_WORLD_RFL_9",
+    "en": "Turning on Jams...",
+    "zh": "打开 Jam..."
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_1",
+    "en": "Beware of The Nanny.",
+    "zh": "小心保姆。"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_10",
+    "en": "Fortune favors the bold, and the good-looking.",
+    "zh": "幸运眷顾勇敢的人，以及英俊的人。"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_2",
+    "en": "A general calls for military service.",
+    "zh": "将军呼吁服兵役。"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_3",
+    "en": "Zombert may be stupid.",
+    "zh": "僵伯特可能很蠢。"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_4",
+    "en": "A leader stays with her pack.",
+    "zh": "领导者与她的狼群待在一起。"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_5",
+    "en": "Three heads average roughly to one intelligent head.",
+    "zh": "三个头平均相当于一个智能头。"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_6",
+    "en": "Remains of the Graveyard Onslaught training program may be out there...",
+    "zh": "墓地猛攻训练计划的遗迹可能就在那里……"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_7",
+    "en": "Launching Air Strike...",
+    "zh": "发动空袭..."
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_8",
+    "en": "Goooooooood morning Neighborville!",
+    "zh": "早上好邻居小镇！"
+  },
+  {
+    "k": "LOADINGTEXT_NPCS_RFL_9",
+    "en": "Your loading text is MINE!",
+    "zh": "你的加载文本是我的！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_1",
+    "en": "Winding up Music Dolls...",
+    "zh": "上发条音乐娃娃..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_2",
+    "en": "Stuffing Teddy Bears...",
+    "zh": "填充泰迪熊..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_3",
+    "en": "Witness the tiny but accurate might of Action Gargantuar!",
+    "zh": "见识见识行动巨人僵尸那娇小却精准的威力吧！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_4",
+    "en": "Plants love the soothing lullaby of Music Doll... Be wary!",
+    "zh": "植物喜欢音乐娃娃舒缓的摇篮曲......要小心！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_5",
+    "en": "Use The Great Zucchini to turn dangerous zombies into their weakest link!",
+    "zh": "使​​用伟大的西葫芦将危险的僵尸变成他们最薄弱的环节！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_6",
+    "en": "Don't those noses look familiar? Take them out before they sniff your Sun-shrooms!",
+    "zh": "这鼻子是不是很眼熟？在它们嗅到你的阳光菇之前把它们消灭掉！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_7",
+    "en": "It's no monkey business!",
+    "zh": "这不是胡闹！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_8",
+    "en": "Take advantage of Funhouse Mirror Zombies with negative Tarot Cards!",
+    "zh": "利用带有负塔罗牌的 Funhouse Mirror Zombies！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL2_RFL_9",
+    "en": "Chilled zombies take more damage from fire damage!",
+    "zh": "冰冷的僵尸会受到更多火焰伤害！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_1",
+    "en": "Tarot Cards shuffle their position at the start of the level, but the deck is the same.",
+    "zh": "塔罗牌在关卡开始时会洗牌，但牌组是相同的。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_10",
+    "en": "The Vendor Bros. will ignore buffed zombies (and each other)!",
+    "zh": "供应商兄弟将忽略经过抛光的僵尸（以及彼此）！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_11",
+    "en": "A seemingly bad Card can be a blessing in disguise!",
+    "zh": "一张看似糟糕的卡，也可能因祸得福！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_12",
+    "en": "Plant a Hypno-shroom or Sun Bean in front of a Grinderhead.",
+    "zh": "在研磨头前种植魅惑菇或太阳豆。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_13",
+    "en": "Group a bunch of Zombies together before triggering a beneficial Tarot Card.",
+    "zh": "将一群僵尸聚集在一起，然后触发一张有益的塔罗牌。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_14",
+    "en": "Some Jack-in-the-Boxes are duds that explode quickly, but only summon one toy. Oops!",
+    "zh": "一些杰克盒子是会快速爆炸的哑弹，但只能召唤一个玩具。哎呀！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_15",
+    "en": "Use Potato Chips to quickly peek at the Tarot Cards at the start of the night before things get crazy.",
+    "zh": "使用脆薯片在事情变得疯狂之前在夜晚开始时快速浏览塔罗牌。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_16",
+    "en": "Stuffing Jack-in-the-Boxes...",
+    "zh": "填充杰克盒子..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_17",
+    "en": "Reshuffling the tarot deck...",
+    "zh": "塔罗牌重新洗牌……"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_18",
+    "en": "Telling Bluebert that Pinky stole his high school crush...",
+    "zh": "告诉 Bluebert Pinky 偷走了他高中时的暗恋对象……"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_19",
+    "en": "Whispering to Pinky that Bluebert copied his cotton candy recipe...",
+    "zh": "低声对 Pinky 说 Bluebert 抄袭了他的棉花糖配方……"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_2",
+    "en": "Boom Balloon Flower's balloons deal bonus damage when stacked!",
+    "zh": "爆气球花的气球在堆叠时会造成额外伤害！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_20",
+    "en": "Sending in the clowns...",
+    "zh": "送来小丑……"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_3",
+    "en": "Use Potato Chip to deal free bonus damage later on in levels!",
+    "zh": "使用脆薯片在稍后的关卡中造成免费的额外伤害！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_4",
+    "en": "Carnie Imp Twins won't split if eaten!",
+    "zh": "Carnie 小鬼僵尸双胞胎吃了不会分裂！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_5",
+    "en": "Smile for the Caliginous Carnival!",
+    "zh": "为昏暗嘉年华微笑！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_6",
+    "en": "Shuffling cards...",
+    "zh": "洗牌..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_7",
+    "en": "Cranking Jack-in-the-Boxes...",
+    "zh": "启动杰克盒子..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_8",
+    "en": "Destroy the Jack-in-the-Box to avoid nasty toys!",
+    "zh": "摧毁杰克盒子以避免讨厌的玩具！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_CARNIVAL_RFL_9",
+    "en": "Keep an open mind for Monkeys.",
+    "zh": "对猴子保持开放的心态。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_FAIRYTALE_RFL_1",
+    "en": "The horse is here...",
+    "zh": "马来了..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_FAIRYTALE_RFL_2",
+    "en": "Also check out PvZ 2: SHUTTLE!",
+    "zh": "另请查看 PvZ 2：穿梭机！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_FAIRYTALE_RFL_3",
+    "en": "Also check out PvZ 2: Edgest!",
+    "zh": "另请查看 PvZ 2：Edgest！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_FAIRYTALE_RFL_4",
+    "en": "mhrm mmm choemse...",
+    "zh": "mhrm 嗯选择..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_FAIRYTALE_RFL_5",
+    "en": "Mirrors have magic properties to reflect magic spells!",
+    "zh": "镜子带有魔法，可以反射魔法咒语！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_FAIRYTALE_RFL_6",
+    "en": "oh poor thang...",
+    "zh": "哦可怜..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_1",
+    "en": "Leave spaces in the back columns for bigger shooters.",
+    "zh": "把更强大的射手放在后排。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_10",
+    "en": "Thrown Imps tend to land in the same spots.",
+    "zh": "扔出来的小鬼往往落在相同的位置。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_11",
+    "en": "Zombies of a world can be defeated by plants of that world.",
+    "zh": "来自某个世界的僵尸可以被来自相同世界的植物击败。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_12",
+    "en": "Stop or slow early zombies to give more time to generate sun.",
+    "zh": "前期让僵尸减速或者停下来，可以给你充分的时间积累阳光。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_13",
+    "en": "Build sun production as fast and early as you can.",
+    "zh": "尽快、尽早建立起你的阳光生产体系。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_14",
+    "en": "Replace sun producers with offensive plants later in the level.",
+    "zh": "在关卡后期将阳光生产植物替换成攻击植物。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_15",
+    "en": "Back up barrier plants with short-range melee plants behind them.",
+    "zh": "备份屏障植物，后面有短程近战植物。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_2",
+    "en": "Plant sun producers early and often.",
+    "zh": "尽早、尽多地种植阳光生产植物。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_3",
+    "en": "Try for 2 columns of sun producers.",
+    "zh": "试着种植 2 排阳光生产植物。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_4",
+    "en": "Try to save sun for costlier but more powerful plants.",
+    "zh": "试着为更贵但更强的植物积攒阳光。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_5",
+    "en": "Use Plant Food on anything to make room for floating Plant Foods.",
+    "zh": "在任何东西上使用叶绿素，为漂浮的叶绿素腾出空间。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_6",
+    "en": "A plant becomes briefly invulnerable during its Plant Food effect.",
+    "zh": "处于叶绿素效果中的植物会短暂无敌。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_7",
+    "en": "Don't be afraid to plant on the right half of the lawn.",
+    "zh": "不要害怕把植物种在草坪的右半边。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_8",
+    "en": "Press the advantage.",
+    "zh": "紧握优势，乘胜追击。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_GENERAL_9",
+    "en": "Try insta-kills like Chili Bean or Chomper against heavily armored zombies.",
+    "zh": "尝试使用巴豆、大嘴花之类的秒杀植物对抗有强大盔甲的僵尸。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_1",
+    "en": "Boosted plants work differently, check them out!",
+    "zh": "增强植物的作用不同，检查一下！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_10",
+    "en": "Use Infi-nut's Plant Food ability to block those pesky Fishermen and their hooks!",
+    "zh": "使用不灭坚果的叶绿素能力来阻挡那些讨厌的渔民和他们的鱼钩！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_11",
+    "en": "Magnet-shroom instantly takes out All-Stars and Chair Racers.",
+    "zh": "磁铁蘑菇立即消灭全明星和椅子赛车手。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_12",
+    "en": "Use Hypno-shroom on zombies with high bite damage, health, or both!",
+    "zh": "对咬合力高、血厚，或两者兼具的僵尸使用魅惑菇！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_13",
+    "en": "Use fire plants to deal with troublesome Egg Stealers and Rock Carriers!",
+    "zh": "使用火焰植物对付麻烦的偷蛋者和运石者！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_14",
+    "en": "Use cheap, spammable plants to distract MC Zom-B's microphone spin!",
+    "zh": "使用廉价的垃圾植物来分散MC 僵-B的麦克风旋转！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_15",
+    "en": "Penny's Challenges focus on your endurance. Work out any leaks in your defense!",
+    "zh": "潘妮的挑战侧重于你的耐力。解决你防守中的任何漏洞！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_16",
+    "en": "Plant forms of fodder to block Tomb Raiser's bones.",
+    "zh": "种植饲料来阻挡盗墓者的骨头。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_17",
+    "en": "Manipulate your defense to benefit from Jurassic Marsh's tar.",
+    "zh": "操纵你的防御，从恐龙危机的焦油中受益。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_18",
+    "en": "Certain jams can speed up or slow down zombies!",
+    "zh": "某些堵塞可以加速或减慢僵尸！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_19",
+    "en": "Want to replay Epic Quest levels? Visit Travel Log's Tourist Trap!",
+    "zh": "想重玩史诗任务关卡吗？参观旅行日志的游客陷阱！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_2",
+    "en": "Vine plants share space with other plants, making them a great use for extra sun!",
+    "zh": "藤本植物与其他植物共享空间，使它们非常适合获得额外的阳光！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_20",
+    "en": "Thymed Events usually appear during special holiday occassions!",
+    "zh": "限时活动通常会在特殊节日期间出现！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_3",
+    "en": "Try out different plants, you just might find a new favorite!",
+    "zh": "尝试不同的植物，说不定你会发现新的最爱！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_4",
+    "en": "Take advantage of minecarts to move expensive plants.",
+    "zh": "利用矿车移动昂贵的植物。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_5",
+    "en": "Keep exploring! Progressing through Adventure will unlock Epic Quests!",
+    "zh": "继续探索！通过冒险取得进展将解锁史诗任务！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_6",
+    "en": "Repairimps working overtime? Try Boingsetta!",
+    "zh": "修理工加班？尝试一品红！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_7",
+    "en": "Plant defensive plants like Wall-nut on sewers!",
+    "zh": "在下水道上种植坚果墙等防御植物！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_8",
+    "en": "You never know what Portals can contain, so prepare for the worst!",
+    "zh": "你永远不知道传送门会包含什么，所以要做好最坏的打算！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RFL_9",
+    "en": "Place cheap plants in front of charging All-Stars to stop them!",
+    "zh": "在冲锋的全明星面前放置廉价植物来阻止他们！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_1",
+    "en": "Bought an Epic Realm? Check it out in the Travel Log's Tourist Trap!",
+    "zh": "买了史诗境界？去旅行日志的游客陷阱里看看吧！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_10",
+    "en": "Constructing new roads...",
+    "zh": "修建新道路..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_11",
+    "en": "Inflating weasels...",
+    "zh": "充气黄鼠狼..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_12",
+    "en": "Use the cannon powerup as much as you feel like it — it's free, after all!",
+    "zh": "随心所欲地使用加农炮能量——毕竟它是免费的！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_13",
+    "en": "Filling out the Almanac? Try out Inzanity!",
+    "zh": "填写年鉴？尝试一下疯狂吧！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_14",
+    "en": "Check our Discord for update announcements!",
+    "zh": "查看我们的 Discord 以获取更新公告！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_15",
+    "en": "Look up to the sky...",
+    "zh": "仰望天空..."
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_16",
+    "en": "Puffapple can deflect more projectiles when given Plant Food!",
+    "zh": "Puffapple 给予叶绿素后可以偏转更多射弹！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_17",
+    "en": "Meteor Flower and Tar make for a deadly combo!",
+    "zh": "流星花和焦油构成致命的组合！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_2",
+    "en": "Check out the Sandbox in Travel Log's Tourist Trap to test plants freely!",
+    "zh": "查看《旅行日志》游客陷阱中的沙箱，自由测试植物！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_3",
+    "en": "Commando Zombie alternates between straight and lobbed shots.",
+    "zh": "突击队僵尸在直射和吊射之间交替。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_4",
+    "en": "Draftodil has decreased effectivity on Assault Airspace Zombies!",
+    "zh": "通风水仙降低了攻击空域僵尸的效率！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_5",
+    "en": "Beware- grounded projectiles fall into the sky in Assault Airspace!",
+    "zh": "小心 - 落地炮弹落入侵袭空域的天空！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_6",
+    "en": "You can't make new Clouds, so make the most of what the sky gives.",
+    "zh": "你无法制造新的云，所以天空给什么就好好用什么。"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_7",
+    "en": "Saucer Squash can abduct Bulls and smaller zombies regardless of health!",
+    "zh": "飞碟瓜可以绑架公牛和较小的僵尸，无论血量如何！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_8",
+    "en": "The Rift houses various zombies of odd appearance AND ability!",
+    "zh": "裂谷里住着各种外表和能力都奇怪的僵尸！"
+  },
+  {
+    "k": "LOADINGTEXT_TIPS_RIFTROAD_RFL_9",
+    "en": "The Rift can contain just about ANY zombie!",
+    "zh": "裂缝几乎可以容纳任何僵尸！"
+  },
+  {
+    "k": "TITLESTATE_SCREEN_LOADING",
+    "en": "Loading Resources",
+    "zh": "正在加载资源"
+  }
+]

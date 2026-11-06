@@ -5,7 +5,10 @@
 ## 完整教程
 
 请先阅读：**[汉化教程.md](./汉化教程.md)**  
-提取 → 翻译 → Sen 回封 → 图鉴属性 `[STAT_…]` → OBB/APK → CDN 防覆盖 → 安装验证。
+提取 → 翻译 → **`build_zh_rton.py` 编 RTON** → 图鉴属性 `[STAT_…]` → OBB/APK → CDN 防覆盖 → 安装验证。  
+RTON 实现说明见 [rton_selfhost_plan.md](./rton_selfhost_plan.md)。
+
+**最快复刻**：见 **[复刻最短路径.md](./复刻最短路径.md)**（OBB：`reproduce_zh.py`；APK 一档：`reproduce_zh_apk.py`；GUI：`reproduce_zh_gui.py`）。
 
 ## 现行文案（唯一启用）
 
@@ -16,10 +19,10 @@
 | `almanac_stat_keys.json` | 图鉴属性新增 `[STAT_…]` → 中文 |
 | `almanac_name_lock.json` | 植物/僵尸短名锁表 |
 | `objective_keys.json` | 关卡目标 `[OBJ_…]` 键 |
-| `current/` | 与现行一致的 JSON / Sen / RTON 快照，便于核对 |
-| `fonts_src/` | 对话 CJK 字体源（重建 LoadingFonts 用） |
+| `fonts_src/` | 方案 A 多字体源（文楷等）；发布用 `--full-coverage` |
+| `current/` | 与现行一致的 JSON / RTON 快照，便于核对 |
 
-短路径工作副本：`F:\sen_work\current\`（与 `current/` 同步用途相同）。
+短路径工作副本：`F:\sen_work\current\`（与 `current/` 同步用途相同；目录名仅为短路径习惯）。
 
 **不要**再用机翻底或旧 `LawnStrings_sen_zh.json` 整库覆盖现行文件。
 
@@ -38,12 +41,13 @@
 
 | 路径 | 说明 |
 |------|------|
-| `scripts/` | 提取、回封、图鉴/目标字面量、CDN/字体、单体打包等 |
+| `scripts/` | 提取、RTON、回封、图鉴/目标字面量、CDN/字体、单体打包、`reproduce_zh*.py` 等 |
+| `复刻最短路径.md` | OBB + 一档 APK 一键说明 |
 | `汉化教程.md` | 完整操作文档 |
 
 ### 改译文的正确流程
 
 1. 只改 **`LawnStrings_zh.json`**  
-2. Sen：decode/encode（Sen 格式 `LocStringValues`）→ `LawnStrings_zh.rton`  
-3. `repack_obb_packages`；若动了属性字面量再跑 `patch_packages_almanac_literals.py --stat-refs`（§5.1.1）；若关卡目标正文仍英文再跑 `patch_packages_objective_literals.py`（§5.1.2）  
+2. `python localization/scripts/build_zh_rton.py`（sync + encode → `LawnStrings_zh.rton`）  
+3. `repack_obb_packages`（或 `build_zh_rton.py --repack-section …`）；若动了属性字面量再跑 `patch_packages_almanac_literals.py --stat-refs`（§5.1.1）；若关卡目标正文仍英文再跑 `patch_packages_objective_literals.py`（§5.1.2）  
 4. 推 OBB + **同步 CDN** → `force-stop` 验收；或 `build_allinone_apk.py` 打单体包  

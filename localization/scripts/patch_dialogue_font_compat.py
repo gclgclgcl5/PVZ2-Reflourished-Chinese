@@ -18,12 +18,17 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from repack_obb_packages import ORIG_CSIZE, compress_packages_zstd  # noqa: E402
+from obb_layout_142 import (  # noqa: E402
+    LF_OFF,
+    ORIG_CSIZE,
+    PACK_OFF,
+    PACKAGES_OFF,
+    compress_packages_zstd,
+    pad_to_csize,
+)
 
 NPC_SHEET0 = 0x38BA000
 NPC_SHEET1 = 0x38BD000
-PACK_OFF = 0xCF55000
-LF_OFF = 0xB17B000
 BRIANNE_OFF = 0x1D000
 BRIANNE_SIZE = 0xEA2C
 CJK_OFF = 0x48000
@@ -88,27 +93,36 @@ def patch_rton_slot(
     section[lo:hi] = body + b"\x00" * pad
 
 
+def remap_dialogue_fonts_in_section(section: bytes) -> bytes:
+    """Apply BLACK_* FontName remaps; return new decompressed Packages section."""
+    buf = bytearray(section)
+    print("patch NPCDataSheet fonts")
+    patch_rton_slot(buf, NPC_SHEET0, NPC_SHEET1, NPC_FONT_REMAP)
+    for lo, hi, remaps in EXTRA_SLOT_REMAPS:
+        print(f"patch extra slot {lo:#x}")
+        patch_rton_slot(buf, lo, hi, remaps)
+
+    sheet = bytes(buf[NPC_SHEET0:NPC_SHEET1])
+    leftover = []
+    for old, _new in NPC_FONT_REMAP:
+        if old in sheet:
+            leftover.append(old.decode())
+    if leftover:
+        raise SystemExit(f"leftover Latin fonts in NPC sheet: {leftover}")
+    print("NPC sheet Latin fonts cleared")
+    return bytes(buf)
+
+
 def alias_brianne_in_obb(obb: bytearray) -> None:
     hits = []
     for i in range(0, 0x1000 - 8, 4):
         a, b = struct.unpack_from("<II", obb, LF_OFF + i)
         if a == BRIANNE_OFF and b == BRIANNE_SIZE:
             hits.append(i)
-        if a == CJK_OFF and b == CJK_SIZE:
-            # already aliased?
-            pass
-    # Accept already-aliased (Brianne entry already points at CJK)
-    already = []
-    for i in range(0, 0x1000 - 8, 4):
-        a, b = struct.unpack_from("<II", obb, LF_OFF + i)
-        # Path containing BRIANNETOD near this meta — fragile; use original size marker
-        # If we find offset 0x1d000 with size 0xea2c → not aliased
-        # If Brianne path still listed but points to CJK, find by scanning utf-32 path
     if hits:
         struct.pack_into("<II", obb, LF_OFF + hits[0], CJK_OFF, CJK_SIZE)
         print(f"  LoadingFonts: BrianneTod -> fbUsv8C5eI @{hits[0]:#x}")
         return
-    # Verify alias already present: look for size pair (CJK_OFF,CJK_SIZE) appearing twice
     cjk_hits = [
         i
         for i in range(0, 0x1000 - 8, 4)
@@ -128,22 +142,7 @@ def main() -> None:
     ap.add_argument("--out-zstd", type=Path, default=None)
     args = ap.parse_args()
 
-    section = bytearray(args.section.read_bytes())
-    print("patch NPCDataSheet fonts")
-    patch_rton_slot(section, NPC_SHEET0, NPC_SHEET1, NPC_FONT_REMAP)
-    for lo, hi, remaps in EXTRA_SLOT_REMAPS:
-        print(f"patch extra slot {lo:#x}")
-        patch_rton_slot(section, lo, hi, remaps)
-
-    # Sanity: no Latin dialogue fonts left in NPC sheet
-    sheet = bytes(section[NPC_SHEET0:NPC_SHEET1])
-    leftover = []
-    for old, _new in NPC_FONT_REMAP:
-        if old in sheet:
-            leftover.append(old.decode())
-    if leftover:
-        raise SystemExit(f"leftover Latin fonts in NPC sheet: {leftover}")
-    print("NPC sheet Latin fonts cleared")
+    section = remap_dialogue_fonts_in_section(args.section.read_bytes())
 
     out_section = args.out_section or args.section.with_name(
         args.section.stem + "_allnpc.bin"
@@ -152,19 +151,16 @@ def main() -> None:
     print(f"wrote {out_section}")
 
     print("compress Packages")
-    blob = compress_packages_zstd(bytes(section))
-    if len(blob) > ORIG_CSIZE:
-        raise SystemExit("compressed Packages exceeds in-place slot")
-    padded = blob + b"\x00" * (ORIG_CSIZE - len(blob))
+    padded = pad_to_csize(compress_packages_zstd(section))
     out_zstd = args.out_zstd or out_section.with_suffix(".zst")
     out_zstd.write_bytes(padded)
     print(f"wrote {out_zstd} ({len(padded)})")
 
     for obb_path in args.obb:
         obb = bytearray(obb_path.read_bytes())
-        if obb[PACK_OFF : PACK_OFF + 4] != b"\x28\xb5\x2f\xfd":
+        if obb[PACKAGES_OFF : PACKAGES_OFF + 4] != b"\x28\xb5\x2f\xfd":
             raise SystemExit(f"bad Packages magic in {obb_path}")
-        obb[PACK_OFF : PACK_OFF + ORIG_CSIZE] = padded
+        obb[PACKAGES_OFF : PACKAGES_OFF + ORIG_CSIZE] = padded
         print("alias BrianneTod in", obb_path.name)
         alias_brianne_in_obb(obb)
         obb_path.write_bytes(obb)
