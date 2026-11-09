@@ -8,7 +8,7 @@
 |------|------|------|------------|
 | FAIRYTALE 童话 | 29 | 576 | 疯帽菇/咖啡豆等 |
 | SKYCITY 侵袭空域 | 23 | 411 | 芦笋战机等；plant≠工厂 |
-| MARKET 月球彩虹市场 | 21 | 406 | 天弓千亦、河童 |
+| MARKET 月虹市场 | 21 | 406 | 天弓千亦、河童 |
 | ICEAGE 冰窟返访域 | 14 | 225 | 与主线极寒冰窟区分 |
 
 转储：`F:\sen_work\epic_realm_narrative_scan\`（`all_epic_realm_narr.txt`、`realm_*.txt`、`families.md`）。  
