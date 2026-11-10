@@ -22,6 +22,7 @@ from apk_toolchain import (
     find_build_tools,
     zipalign_sign,
 )
+from verify_obb_scheme_a import verify as verify_obb_scheme_a
 
 REPO = Path(__file__).resolve().parents[2]
 RELEASE = REPO / "release_zh"
@@ -179,6 +180,17 @@ def main() -> int:
             f"keystore missing: {args.keystore}\n"
             f"Place debug.keystore under {RELEASE} or pass --keystore"
         )
+
+    scheme_errs = verify_obb_scheme_a(obb)
+    if scheme_errs:
+        msg = "\n".join(f"  - {e}" for e in scheme_errs)
+        raise SystemExit(
+            f"OBB failed Scheme A LoadingFonts check: {obb}\n{msg}\n"
+            "Refuse to embed a half-broken font OBB. "
+            "Run reproduce_zh.py (full-coverage), then "
+            "verify_obb_scheme_a.py before all-in-one."
+        )
+    print(f"Scheme A OK: {obb}", flush=True)
 
     version = args.version
     if not version:

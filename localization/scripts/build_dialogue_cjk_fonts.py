@@ -217,21 +217,32 @@ def merge_fallback(primary: Path, fallback: Path, text: str, dest: Path) -> None
     subset_font(fallback, text, dest)
 
 
-def build_ui_full(text: str) -> None:
-    """Subset stock UI face to full LawnStrings charset (for --full-coverage)."""
-    src = OUT / "_ui_stock.ttf"
-    if not src.exists():
-        # fall back to uncompressed stock extract or previous full
-        for cand in (OUT / "_ui_raw.ttf", OUT / "fbUsv8C5eI.ttf"):
-            if cand.exists() and cand.stat().st_size > 1_000_000:
-                src = cand
-                break
-    if not src.exists():
-        raise SystemExit("missing fonts_cjk/_ui_stock.ttf for UI full subset")
+def build_ui_full(text: str, *, prefer_cjk_source: bool) -> None:
+    """Build UI face with LawnStrings charset (for --full-coverage).
+
+    Prefer Noto Sans SC so rare CJK in the table are not missing (stock UI
+    subset alone can still dash). Family name stays fbUsv8C5eI for the game.
+    """
     dest = OUT / "fbUsv8C5eI_full.ttf"
+    noto = SRC / "NotoSansSC-Regular.otf"
+    if prefer_cjk_source and noto.is_file():
+        src = noto
+    else:
+        src = OUT / "_ui_stock.ttf"
+        if not src.exists():
+            for cand in (OUT / "_ui_raw.ttf", OUT / "fbUsv8C5eI.ttf"):
+                if cand.exists() and cand.stat().st_size > 1_000_000:
+                    src = cand
+                    break
+        if not src.exists():
+            if noto.is_file():
+                src = noto
+            else:
+                raise SystemExit(
+                    "missing fonts_cjk/_ui_stock.ttf and NotoSansSC-Regular.otf"
+                )
     print(f"build UI full from {src.name}")
     subset_font(src, text, dest)
-    # Keep game-facing family; stock UI uses an opaque PostScript-ish id.
     set_family_name(dest, "fbUsv8C5eI")
     print(f"  -> {dest} ({dest.stat().st_size})")
 
@@ -246,7 +257,8 @@ def main() -> None:
         nargs="?",
         const=400,
         default=None,
-        help="only top-N CJK by frequency (+ ASCII/punct); recommended ~300-500 for Scheme A",
+        help="DEV ONLY: top-N CJK by frequency. Release/发版 must omit this "
+        "(full LawnStrings cmap) or dashes appear for rare characters.",
     )
     ap.add_argument(
         "--skip-download",
@@ -258,8 +270,14 @@ def main() -> None:
         download_all()
     text = charset_from_lawn(args.compact)
     print(f"charset size {len(text)} compact={args.compact}")
+    if args.compact is not None:
+        print(
+            "WARNING: --compact is not for release; "
+            "rare dialogue characters will show as dashes."
+        )
     OUT.mkdir(parents=True, exist_ok=True)
     fallback = SRC / "NotoSansSC-Regular.otf"
+    full_cmap = args.compact is None
     for face_name, src_name in FACE_MAP:
         src = SRC / src_name
         if not src.exists():
@@ -269,14 +287,19 @@ def main() -> None:
             face_name.replace(" ", "_").replace("/", "_") + ".ttf"
         )
         dest = OUT / out_name
-        print(f"build {face_name} from {src.name}")
-        if src_name.startswith("fusion-pixel"):
-            merge_fallback(src, fallback, text, dest)
+        # Pixel Pico cannot cover full LawnStrings CJK — use Noto for release.
+        if full_cmap and src_name.startswith("fusion-pixel") and fallback.is_file():
+            print(f"build {face_name} from {fallback.name} (full-cmap, not pixel)")
+            subset_font(fallback, text, dest)
         else:
-            subset_font(src, text, dest)
+            print(f"build {face_name} from {src.name}")
+            if src_name.startswith("fusion-pixel"):
+                merge_fallback(src, fallback, text, dest)
+            else:
+                subset_font(src, text, dest)
         set_family_name(dest, face_name)
         print(f"  -> {dest} ({dest.stat().st_size})")
-    build_ui_full(text)
+    build_ui_full(text, prefer_cjk_source=full_cmap)
     print("done")
 
 
