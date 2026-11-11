@@ -18,7 +18,9 @@ from io import BytesIO
 from pathlib import Path
 
 from fontTools.fontBuilder import FontBuilder
-from fontTools.merge import Merger
+from fontTools.pens.cu2quPen import Cu2QuPen
+from fontTools.pens.ttGlyphPen import TTGlyphPen
+from fontTools.pens.transformPen import TransformPen
 from fontTools.subset import Options, Subsetter
 from fontTools.ttLib import TTFont
 
@@ -198,8 +200,70 @@ def otf_to_ttf(src: Path, dest: Path) -> None:
     font.close()
 
 
+def graft_missing_glyphs(
+    pixel_path: Path, fallback_path: Path, missing: list[str], dest: Path
+) -> int:
+    """Copy fallback outlines into the pixel TTF, scaled to its unitsPerEm.
+
+    fontTools Merger cannot combine this glyf face with a CFF/OTF fallback.
+    """
+    dst = TTFont(pixel_path)
+    src = TTFont(fallback_path)
+    src_cmap = src.getBestCmap() or {}
+    scale = dst["head"].unitsPerEm / src["head"].unitsPerEm
+    glyf = dst["glyf"]
+    hmtx = dst["hmtx"]
+    order = list(dst.getGlyphOrder())
+    glyphs = src.getGlyphSet()
+    grafted = 0
+    for ch in missing:
+        cp = ord(ch)
+        src_name = src_cmap.get(cp)
+        if not src_name:
+            print(f"  fallback also missing U+{cp:04X} {ch!r}")
+            continue
+        pen = TTGlyphPen(None)
+        drawer = TransformPen(pen, (scale, 0, 0, scale, 0, 0))
+        try:
+            glyphs[src_name].draw(Cu2QuPen(drawer, 1.0))
+        except Exception as exc:
+            print(f"  skip U+{cp:04X} {ch!r} ({exc})")
+            continue
+        gname = f"graft{cp:04X}"
+        glyf[gname] = pen.glyph()
+        width, lsb = src["hmtx"][src_name]
+        hmtx[gname] = (
+            max(1, int(round(width * scale))),
+            int(round(lsb * scale)),
+        )
+        if gname not in order:
+            order.append(gname)
+        if "vmtx" in dst:
+            vmtx = dst["vmtx"].metrics
+            if gname not in vmtx:
+                vmtx[gname] = vmtx.get(".notdef", next(iter(vmtx.values())))
+        for table in dst["cmap"].tables:
+            if table.platformID == 3 and table.platEncID in (1, 10):
+                if cp > 0xFFFF and table.platEncID == 1:
+                    continue
+                table.cmap[cp] = gname
+        grafted += 1
+    dst.setGlyphOrder(order)
+    dst["maxp"].numGlyphs = len(order)
+    dst["hhea"].numberOfHMetrics = len(order)
+    if "vhea" in dst:
+        dst["vhea"].numberOfVMetrics = len(order)
+    dst.save(dest)
+    dst.close()
+    src.close()
+    return grafted
+
+
 def merge_fallback(primary: Path, fallback: Path, text: str, dest: Path) -> None:
-    """Subset primary; if many CJK missing, replace with sans subset instead."""
+    """Subset the pixel face, then graft only missing glyphs from the sans face.
+
+    The dialogue face stays pixel. Sans is not used as a full replacement.
+    """
     tmp = dest.parent / "_tmp"
     tmp.mkdir(exist_ok=True)
     p1 = tmp / "p1.ttf"
@@ -208,13 +272,16 @@ def merge_fallback(primary: Path, fallback: Path, text: str, dest: Path) -> None
     cmap = f1.getBestCmap() or {}
     missing = [c for c in text if ord(c) > 0x7F and ord(c) not in cmap]
     f1.close()
-    if len(missing) <= 32:
-        if missing:
-            print(f"  warn {len(missing)} missing glyphs kept (pixel font)")
+    if not missing:
         shutil.copyfile(p1, dest)
         return
-    print(f"  {len(missing)} missing; using sans fallback for {dest.name}")
-    subset_font(fallback, text, dest)
+    shown = " ".join(f"U+{ord(c):04X}:{c}" for c in missing)
+    print(f"  pixel missing {len(missing)}; grafting those glyphs from sans")
+    print(f"  {shown}")
+    fb = tmp / "fallback_missing.ttf"
+    subset_font(fallback, "".join(missing), fb)
+    n = graft_missing_glyphs(p1, fb, missing, dest)
+    print(f"  grafted {n}/{len(missing)}")
 
 
 def build_ui_full(text: str, *, prefer_cjk_source: bool) -> None:
@@ -277,7 +344,6 @@ def main() -> None:
         )
     OUT.mkdir(parents=True, exist_ok=True)
     fallback = SRC / "NotoSansSC-Regular.otf"
-    full_cmap = args.compact is None
     for face_name, src_name in FACE_MAP:
         src = SRC / src_name
         if not src.exists():
@@ -287,19 +353,14 @@ def main() -> None:
             face_name.replace(" ", "_").replace("/", "_") + ".ttf"
         )
         dest = OUT / out_name
-        # Pixel Pico cannot cover full LawnStrings CJK — use Noto for release.
-        if full_cmap and src_name.startswith("fusion-pixel") and fallback.is_file():
-            print(f"build {face_name} from {fallback.name} (full-cmap, not pixel)")
-            subset_font(fallback, text, dest)
+        print(f"build {face_name} from {src.name}")
+        if src_name.startswith("fusion-pixel"):
+            merge_fallback(src, fallback, text, dest)
         else:
-            print(f"build {face_name} from {src.name}")
-            if src_name.startswith("fusion-pixel"):
-                merge_fallback(src, fallback, text, dest)
-            else:
-                subset_font(src, text, dest)
+            subset_font(src, text, dest)
         set_family_name(dest, face_name)
         print(f"  -> {dest} ({dest.stat().st_size})")
-    build_ui_full(text, prefer_cjk_source=full_cmap)
+    build_ui_full(text, prefer_cjk_source=args.compact is None)
     print("done")
 
 

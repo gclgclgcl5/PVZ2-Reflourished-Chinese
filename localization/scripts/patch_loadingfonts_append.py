@@ -383,7 +383,7 @@ def main() -> None:
     ap.add_argument(
         "--full-coverage",
         action="store_true",
-        help="full LawnStrings cmap: shrink UI, pack Brianne/Pico/Ashley, alias other dialogue to UI",
+        help="full LawnStrings cmap: pack Brianne/Pico pixel/Ashley, alias other dialogue faces to UI",
     )
     ap.add_argument("--stock-file-off", type=lambda x: int(x, 0), default=0xB17B000)
     ap.add_argument("--out-obb", type=Path, required=True)
