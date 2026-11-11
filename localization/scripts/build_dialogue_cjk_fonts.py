@@ -57,6 +57,16 @@ DOWNLOADS = [
         "NotoSansSC-Bold.otf",
     ),
     (
+        "https://github.com/googlefonts/noto-cjk/raw/main/Sans/SubsetOTF/SC/NotoSansSC-Black.otf",
+        None,
+        "NotoSansSC-Black.otf",
+    ),
+    (
+        "https://github.com/google/fonts/raw/main/ofl/zcoolkuaile/ZCOOLKuaiLe-Regular.ttf",
+        None,
+        "ZCOOLKuaiLe-Regular.ttf",
+    ),
+    (
         "https://github.com/googlefonts/noto-cjk/raw/main/Serif/SubsetOTF/SC/NotoSerifSC-Regular.otf",
         None,
         "NotoSerifSC-Regular.otf",
@@ -284,33 +294,53 @@ def merge_fallback(primary: Path, fallback: Path, text: str, dest: Path) -> None
     print(f"  grafted {n}/{len(missing)}")
 
 
+def set_stock_ui_names(font_path: Path) -> None:
+    """Keep the names the game looks up on the original UI face.
+
+    Stock name ID 1 is ``fbUsv8C5eI Regular`` and the typographic family is
+    ``fbUsv8C5eI Black``. Renaming that to a plain family makes the menu miss
+    the face and fall back to the Android system CJK font.
+    """
+    font = TTFont(font_path)
+    name = font["name"]
+    name.names = [r for r in name.names if r.nameID not in (1, 2, 3, 4, 6, 16, 17)]
+
+    def add(name_id: int, string: str) -> None:
+        name.setName(string, name_id, 3, 1, 0x409)
+
+    add(1, "fbUsv8C5eI Regular")
+    add(2, "Bold")
+    add(3, "fbUsv8C5eI Black")
+    add(4, "fbUsv8C5eI Black")
+    add(6, "fbUsv8C5eIBlack")
+    add(16, "fbUsv8C5eI Black")
+    add(17, "Bold")
+    font.save(font_path)
+    font.close()
+
+
 def build_ui_full(text: str, *, prefer_cjk_source: bool) -> None:
     """Build UI face with LawnStrings charset (for --full-coverage).
 
-    Prefer Noto Sans SC so rare CJK in the table are not missing (stock UI
-    subset alone can still dash). Family name stays fbUsv8C5eI for the game.
+    Outlines come from the stock UI face so menus match the original BLACK
+    look. Name records must stay ``fbUsv8C5eI Black``; a renamed family makes
+    the game fall back to the Android system sans. Characters the stock face
+    lacks are grafted from Noto Sans SC Bold.
     """
     dest = OUT / "fbUsv8C5eI_full.ttf"
-    noto = SRC / "NotoSansSC-Regular.otf"
-    if prefer_cjk_source and noto.is_file():
-        src = noto
+    stock = OUT / "_ui_stock.ttf"
+    bold = SRC / "NotoSansSC-Bold.otf"
+    if not stock.is_file():
+        raise SystemExit(f"missing {stock}")
+    print(f"build UI full from stock {stock.name}")
+    if prefer_cjk_source and bold.is_file():
+        merge_fallback(stock, bold, text, dest)
     else:
-        src = OUT / "_ui_stock.ttf"
-        if not src.exists():
-            for cand in (OUT / "_ui_raw.ttf", OUT / "fbUsv8C5eI.ttf"):
-                if cand.exists() and cand.stat().st_size > 1_000_000:
-                    src = cand
-                    break
-        if not src.exists():
-            if noto.is_file():
-                src = noto
-            else:
-                raise SystemExit(
-                    "missing fonts_cjk/_ui_stock.ttf and NotoSansSC-Regular.otf"
-                )
-    print(f"build UI full from {src.name}")
-    subset_font(src, text, dest)
-    set_family_name(dest, "fbUsv8C5eI")
+        subset_font(stock, text, dest)
+    set_stock_ui_names(dest)
+    font = TTFont(dest)
+    font.getGlyphSet()
+    font.close()
     print(f"  -> {dest} ({dest.stat().st_size})")
 
 
